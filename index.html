@@ -19,6 +19,7 @@
                     <a href="#features">Возможности</a>
                     <a href="#screenshots">Скриншоты</a>
                     <a href="#contact">Контакты</a>
+                    <a href="terms.html">Условия</a>
                     <a href="privacy.html">Политика</a>
                 </nav>
             </div>
@@ -30,14 +31,14 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text fade-in">
-                    <h1 class="hero-title">Управляйте финансами<br>и бизнесом с&nbsp;лёгкостью</h1>
-                    <p class="hero-description">Профессиональное решение для контроля финансов, учёта товаров, управления долгами и отслеживания курсов валют</p>
+                    <h1 class="hero-title">Умное управление<br>финансами и бизнесом</h1>
+                    <p class="hero-description">Финансы, долги, товары и продажи в одном приложении.</p>
                     <div class="hero-highlight">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                             <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
-                        <p>Идеальное решение для торговли на рынках, небольших магазинов и предпринимателей. <strong>Не нужно дорогое оборудование</strong> — используйте свой смартфон для управления бизнесом!</p>
+                        <p>Идеальное решение для рынка, магазина и малого бизнеса. <strong>Всё работает прямо со смартфона.</strong></p>
                     </div>
                     <div class="hero-buttons">
                         <a href="#" class="btn btn-primary">
@@ -56,7 +57,13 @@
                 </div>
                 <div class="hero-image slide-in">
                     <div class="phone-showcase">
-                        <img src="images/hero-phone.png" alt="Hamyon Dashboard" class="showcase-main">
+                        <div class="hero-screens">
+                            <img src="images/Финансы.png" alt="Hamyon финансы" class="hero-screen is-active">
+                            <img src="images/Долги.png" alt="Hamyon долги" class="hero-screen">
+                            <img src="images/Магазин.png" alt="Hamyon магазин" class="hero-screen">
+                            <img src="images/Товары.png" alt="Hamyon товары" class="hero-screen">
+                            <img src="images/Касса.png" alt="Hamyon касса" class="hero-screen">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -403,6 +410,17 @@
         document.addEventListener('DOMContentLoaded', () => {
             initAOS();
             animateCounters();
+
+            const heroScreens = document.querySelectorAll('.hero-screen');
+            if (heroScreens.length > 1) {
+                let heroScreenIndex = 0;
+
+                setInterval(() => {
+                    heroScreens[heroScreenIndex].classList.remove('is-active');
+                    heroScreenIndex = (heroScreenIndex + 1) % heroScreens.length;
+                    heroScreens[heroScreenIndex].classList.add('is-active');
+                }, 2000);
+            }
         });
     </script>
 </body>

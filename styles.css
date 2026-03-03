@@ -193,35 +193,39 @@ body {
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
     gap: 80px;
     align-items: center;
 }
 
 .hero-title {
-    font-size: 56px;
+    font-size: 64px;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
     color: var(--primary);
     margin-bottom: 24px;
+    max-width: 620px;
 }
 
 .hero-description {
-    font-size: 20px;
+    font-size: 22px;
     color: var(--text-light);
     margin-bottom: 24px;
-    line-height: 1.6;
+    line-height: 1.45;
+    max-width: 620px;
 }
 
 .hero-highlight {
     display: flex;
     gap: 16px;
     align-items: flex-start;
-    padding: 20px 24px;
+    padding: 18px 22px;
     background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
     border-radius: 12px;
     border-left: 4px solid var(--accent);
-    margin-bottom: 40px;
+    margin-bottom: 32px;
+    max-width: 620px;
 }
 
 .hero-highlight svg {
@@ -232,8 +236,8 @@ body {
 
 .hero-highlight p {
     margin: 0;
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.55;
     color: var(--text);
 }
 
@@ -298,16 +302,30 @@ body {
 .phone-showcase {
     position: relative;
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
     margin: 0 auto;
     animation: float 6s ease-in-out infinite;
 }
 
-.showcase-main {
+.hero-screens {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background: transparent;
+    box-shadow: none;
+}
+
+.hero-screen {
+    display: none;
     width: 100%;
     height: auto;
-    border-radius: 40px;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+    object-fit: contain;
+    object-position: center center;
+}
+
+.hero-screen.is-active {
+    display: block;
 }
 
 /* Features Section */
@@ -712,15 +730,22 @@ body {
     .hero-title {
         font-size: 34px;
         line-height: 1.15;
+        max-width: none;
     }
 
     .hero-description {
         font-size: 17px;
+        max-width: none;
     }
 
     .hero-highlight {
         margin-bottom: 28px;
         padding: 16px 18px;
+        max-width: none;
+    }
+
+    .phone-showcase {
+        max-width: 260px;
     }
 
     .hero-buttons,
