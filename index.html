@@ -2,425 +2,977 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamyon — Умное управление финансами и бизнесом</title>
-    <meta name="description" content="Профессиональное приложение для управления финансами, долгами, товарами и складом. Доступно на iOS и Android.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <script>
+        try {
+            const savedTheme = localStorage.getItem('hisob-theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        } catch (_) {}
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hisob — учёт, касса и контроль бизнеса в одном приложении</title>
+    <meta name="description" content="Hisob — мобильная система учёта для магазинов и предпринимателей: финансы, долги, склад и касса в одном приложении. Работает офлайн.">
+    <meta name="keywords" content="Hisob, учёт финансов, POS касса, магазин, рынок, Таджикистан">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Hisob">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hisob.tj/">
+    <meta property="og:title" content="Hisob — учёт и касса в телефоне">
+    <meta property="og:description" content="Финансы, долги, товары и продажи в одном приложении. Без сложного оборудования.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Hisob">
+    <link rel="canonical" href="https://hisob.tj/">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/app_icon.png">
+    <link rel="apple-touch-icon" href="images/app_icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hisob","applicationCategory":"FinanceApplication","operatingSystem":"iOS, Android","description":"Приложение для учёта финансов и POS-касса для малого бизнеса."}
+    </script>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <h1>Hamyon</h1>
+        <div class="wrap header-inner">
+            <a href="index.html" class="logo">
+                <img src="images/app_icon.png" alt="Логотип Hisob" width="36" height="36" loading="eager">
+                <span>Hisob</span>
+            </a>
+            <nav class="nav" aria-label="Основная навигация">
+                <a href="#about" data-i18n="nav_features">Возможности</a>
+                <a href="#trust" data-i18n="nav_support">Поддержка</a>
+                <a href="#who" data-i18n="nav_for_who">Кому подходит</a>
+                <a href="#faq" data-i18n="nav_faq">Вопросы</a>
+            </nav>
+            <div class="header-tools">
+                <label for="langSelect" class="sr-only" data-i18n="language_label">Язык</label>
+                <div class="lang-select-wrap">
+                    <select id="langSelect" class="lang-select" aria-label="Язык">
+                        <option value="ru">RU</option>
+                        <option value="tj">TJ</option>
+                        <option value="uz">UZ</option>
+                        <option value="en">EN</option>
+                    </select>
                 </div>
-                <nav class="nav">
-                    <a href="#features">Возможности</a>
-                    <a href="#screenshots">Скриншоты</a>
-                    <a href="#contact">Контакты</a>
-                    <a href="terms.html">Условия</a>
-                    <a href="privacy.html">Политика</a>
-                </nav>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему">
+                    <span class="theme-toggle__icon" aria-hidden="true">◐</span>
+                    <span class="theme-toggle__label" data-i18n="theme_label">Тема</span>
+                </button>
             </div>
+            <a href="#download" class="btn btn-sm header-cta" data-i18n="header_download">Скачать</a>
+            <button class="nav-toggle" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text fade-in">
-                    <h1 class="hero-title">Умное управление<br>финансами и бизнесом</h1>
-                    <p class="hero-description">Финансы, долги, товары и продажи в одном приложении.</p>
-                    <div class="hero-highlight">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                        <p>Идеальное решение для рынка, магазина и малого бизнеса. <strong>Всё работает прямо со смартфона.</strong></p>
+    <main>
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow" data-i18n="hero_eyebrow">Платформа для малого и среднего бизнеса</p>
+                    <h1 data-i18n="hero_title">Управляйте бизнесом уверенно и держите все под контролем</h1>
+                    <p class="lead" data-i18n="hero_lead">Hisob ведет кассу, склад, долги и финансы в одном месте. Все ключевые цифры всегда под рукой в телефоне.</p>
+                    <div class="hero-actions">
+                        <a href="#" class="btn">App Store</a>
+                        <a href="#" class="btn btn-outline">Google Play</a>
                     </div>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn btn-primary">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="currentColor"/>
-                            </svg>
-                            App Store
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-screens">
+                        <img src="images/Финансы.png" alt="Экран финансов в приложении Hisob" width="260" height="540" loading="eager" class="screen active">
+                        <img src="images/Долги.png" alt="Экран управления долгами в приложении Hisob" loading="lazy" class="screen">
+                        <img src="images/Магазин.png" alt="Экран склада и товаров в приложении Hisob" loading="lazy" class="screen">
+                        <img src="images/Касса.png" alt="Экран кассы в приложении Hisob" loading="lazy" class="screen">
+                    </div>
+                    <div class="hero-metric top">
+                        <strong>24/7</strong>
+                        <span data-i18n="hero_metric_top">доступ к данным магазина</span>
+                    </div>
+                    <div class="hero-metric bottom">
+                        <strong>1 приложение</strong>
+                        <span data-i18n="hero_metric_bottom">вместо нескольких сервисов</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="proof-bar" aria-label="Ключевые преимущества">
+            <div class="wrap">
+                <div class="section-head proof-head">
+                    <p class="eyebrow" data-i18n="proof_eyebrow">Преимущества</p>
+                    <h2 data-i18n="proof_title">Почему бизнес выбирает Hisob</h2>
+                </div>
+                <div class="proof-grid">
+                    <article>
+                        <h2 data-i18n="proof_1_title">Современная mobile-first система</h2>
+                        <p data-i18n="proof_1_text">Учет финансов и продаж в смартфоне. Удобно для базаров, торговых точек и мест, где сложно работать с компьютером.</p>
+                    </article>
+                    <article>
+                        <h2 data-i18n="proof_2_title">Запуск без оборудования</h2>
+                        <p data-i18n="proof_2_text">Не нужно сразу покупать кассу, сканеры и принтеры. Можно начать работу с нулевым бюджетом.</p>
+                    </article>
+                    <article>
+                        <h2 data-i18n="proof_3_title">Без больших стартовых платежей</h2>
+                        <p data-i18n="proof_3_text">Для новых клиентов есть 14-дневный пробный период. Подписку можно выбрать на удобный срок, без крупных единовременных оплат.</p>
+                    </article>
+                    <article>
+                        <h2 data-i18n="proof_4_title">Курсы банков Таджикистана</h2>
+                        <p data-i18n="proof_4_text">В приложении собраны курсы валют банков Таджикистана, и мы подбираем для вас самый выгодный курс.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow" data-i18n="about_eyebrow">Возможности</p>
+                    <h2 data-i18n="about_title">Главные функции и экраны приложения</h2>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-media">
+                            <img src="images/Финансы.png" alt="Экран финансов" loading="lazy">
+                        </div>
+                        <h3 data-i18n="feature_1_title">Финансы и аналитика</h3>
+                        <p data-i18n="feature_1_text">Доходы, расходы и динамика по периодам. Сразу видно реальную картину.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-media">
+                            <img src="images/Долги.png" alt="Экран долгов" loading="lazy">
+                        </div>
+                        <h3 data-i18n="feature_2_title">Долги и обязательства</h3>
+                        <p data-i18n="feature_2_text">История каждого долга: сумма, дата, возврат и напоминания.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-media">
+                            <img src="images/Товары.png" alt="Экран товаров и склада" loading="lazy">
+                        </div>
+                        <h3 data-i18n="feature_3_title">Склад и товары</h3>
+                        <p data-i18n="feature_3_text">Остатки, категории и движение товаров без ручных таблиц.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-media">
+                            <img src="images/Касса.png" alt="Экран кассы" loading="lazy">
+                        </div>
+                        <h3 data-i18n="feature_4_title">Касса и продажи</h3>
+                        <p data-i18n="feature_4_text">Быстрые продажи, сканер штрих-кодов и учет каждой операции.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-media">
+                            <img src="images/Валюта.png" alt="Экран курсов валют" loading="lazy">
+                        </div>
+                        <h3 data-i18n="feature_5_title">Курсы валют</h3>
+                        <p data-i18n="feature_5_text">Собраны курсы валют банков Таджикистана. Помогаем выбрать самый выгодный курс.</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-media">
+                            <img src="images/История продаж.png" alt="Экран истории продаж" loading="lazy">
+                        </div>
+                        <h3 data-i18n="feature_6_title">История продаж</h3>
+                        <p data-i18n="feature_6_text">Смотрите прошлые операции и быстро проверяйте динамику.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="trust" class="section section-alt">
+            <div class="wrap trust-grid">
+                <div class="trust-copy">
+                    <p class="eyebrow" data-i18n="trust_eyebrow">Внедрение и поддержка</p>
+                    <h2 data-i18n="trust_title">Помогаем запустить учет спокойно и без лишней сложности</h2>
+                    <ul class="trust-list">
+                        <li data-i18n-html="trust_li_1"><strong>Настройка под ваш бизнес:</strong> адаптируем приложение под ваши процессы и формат учета.</li>
+                        <li data-i18n-html="trust_li_2"><strong>Быстрый старт:</strong> помогаем начать без закупки большого количества оборудования.</li>
+                        <li data-i18n-html="trust_li_3"><strong>Обучение команды:</strong> показываем, как работать с нужными разделами без лишней теории.</li>
+                        <li data-i18n-html="trust_li_4"><strong>Сопровождение:</strong> остаемся на связи, помогаем с вопросами и развитием системы.</li>
+                    </ul>
+                </div>
+                <div class="trust-panel">
+                    <h3 data-i18n="trust_panel_title">Как проходит запуск</h3>
+                    <ol>
+                        <li>
+                            <span>01</span>
+                            <div>
+                                <h4 data-i18n="trust_step_1_title">Разбираем ваш процесс</h4>
+                                <p data-i18n="trust_step_1_text">Согласуем, как у вас ведутся продажи, склад, долги и контроль денег.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span>02</span>
+                            <div>
+                                <h4 data-i18n="trust_step_2_title">Настраиваем и запускаем</h4>
+                                <p data-i18n="trust_step_2_text">Переносим структуру учета в приложение и готовим команду к работе.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span>03</span>
+                            <div>
+                                <h4 data-i18n="trust_step_3_title">Сопровождаем после старта</h4>
+                                <p data-i18n="trust_step_3_text">Отвечаем на вопросы, помогаем с улучшениями и настройкой под новые задачи.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section id="who" class="section">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow" data-i18n="who_eyebrow">Кому подходит</p>
+                    <h2 data-i18n="who_title">Кому подойдет Hisob</h2>
+                </div>
+                <div class="solutions-wrap">
+                    <div class="solutions-nav" role="tablist" aria-label="Сценарии использования">
+                        <button class="solution-chip is-active" role="tab" aria-selected="true" data-solution-target="shops" data-i18n="who_tab_1">Магазины и точки продаж</button>
+                        <button class="solution-chip" role="tab" aria-selected="false" data-solution-target="market" data-i18n="who_tab_2">Аптеки и фастфуд</button>
+                        <button class="solution-chip" role="tab" aria-selected="false" data-solution-target="family" data-i18n="who_tab_3">ИП и семейный бизнес</button>
+                        <button class="solution-chip" role="tab" aria-selected="false" data-solution-target="mobile" data-i18n="who_tab_4">Учет долгов и финансов</button>
+                    </div>
+
+                    <div class="solutions-content">
+                        <article class="solution-panel is-active" data-solution-panel="shops">
+                            <h3 data-i18n="who_panel_1_title">Для магазинов, лавок, киосков и торговых точек</h3>
+                            <p data-i18n="who_panel_1_text">Подходит тем, кому нужен быстрый и понятный учет продаж, остатков и денег без сложного внедрения.</p>
+                            <div class="solution-tags">
+                                <span data-i18n="who_panel_1_tag_1">Касса (POS)</span>
+                                <span data-i18n="who_panel_1_tag_2">Склад и остатки</span>
+                                <span data-i18n="who_panel_1_tag_3">Продажи и возвраты</span>
+                            </div>
+                        </article>
+
+                        <article class="solution-panel" data-solution-panel="market" hidden>
+                            <h3 data-i18n="who_panel_2_title">Для аптек, фастфуда и сервисных точек</h3>
+                            <p data-i18n="who_panel_2_text">Удобно для быстрого обслуживания клиентов, контроля товарных остатков и ежедневной выручки в одном приложении.</p>
+                            <div class="solution-tags">
+                                <span data-i18n="who_panel_2_tag_1">Быстрые продажи</span>
+                                <span data-i18n="who_panel_2_tag_2">Контроль остатков</span>
+                                <span data-i18n="who_panel_2_tag_3">Работа в телефоне</span>
+                            </div>
+                        </article>
+
+                        <article class="solution-panel" data-solution-panel="family" hidden>
+                            <h3 data-i18n="who_panel_3_title">Для ИП и семейных бизнесов</h3>
+                            <p data-i18n="who_panel_3_text">Один инструмент для финансов, долгов, товаров и продаж. Легко контролировать процессы всей командой.</p>
+                            <div class="solution-tags">
+                                <span data-i18n="who_panel_3_tag_1">Финансы</span>
+                                <span data-i18n="who_panel_3_tag_2">Долги</span>
+                                <span data-i18n="who_panel_3_tag_3">Отчеты</span>
+                            </div>
+                        </article>
+
+                        <article class="solution-panel" data-solution-panel="mobile" hidden>
+                            <h3 data-i18n="who_panel_4_title">Для тех, кто ведет долги и финансы вручную</h3>
+                            <p data-i18n="who_panel_4_text">Переведите ручной учет в понятный мобильный формат: долги, поступления, расходы и история операций всегда под рукой.</p>
+                            <div class="solution-tags">
+                                <span data-i18n="who_panel_4_tag_1">Долги и расчеты</span>
+                                <span data-i18n="who_panel_4_tag_2">Простая аналитика</span>
+                                <span data-i18n="who_panel_4_tag_3">Без таблиц и блокнотов</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <div class="wrap narrow">
+                <div class="section-head">
+                    <p class="eyebrow" data-i18n="faq_eyebrow">FAQ</p>
+                    <h2 data-i18n="faq_title">Частые вопросы</h2>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary data-i18n="faq_q_1">Для кого подходит Hisob?</summary>
+                        <p data-i18n="faq_a_1">Для владельцев торговых точек, небольших магазинов и предпринимателей.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary data-i18n="faq_q_2">Нужен ли интернет для работы?</summary>
+                        <p data-i18n="faq_a_2">Нет. Основные функции работают офлайн, а при подключении можно сделать синхронизацию.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary data-i18n="faq_q_3">Безопасны ли данные?</summary>
+                        <p data-i18n="faq_a_3">Да. Данные шифруются, хранятся локально, резервные копии доступны только владельцу.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary data-i18n="faq_q_4">Есть ли функции кассы и сканирования?</summary>
+                        <p data-i18n="faq_a_4">Да. Есть продажи, сканер штрих-кодов и работа с товарами.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary data-i18n="faq_q_5">Сколько стоит использование?</summary>
+                        <p data-i18n="faq_a_5">Для новых клиентов есть 14 дней пробного периода. Дальше можно выбрать подписку на удобный срок, без больших стартовых платежей.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="cta-block">
+            <div class="wrap cta-inner">
+                <p class="eyebrow" data-i18n="cta_eyebrow">Старт</p>
+                <h2 data-i18n="cta_title">Начните учет сегодня</h2>
+                <p data-i18n="cta_text">Скачайте приложение и держите продажи, склад и финансы под контролем. По вашему желанию полностью настроим систему под ваш бизнес и всегда готовы к сотрудничеству.</p>
+                <div class="hero-actions">
+                    <a href="#" class="btn">App Store</a>
+                    <a href="#" class="btn btn-outline">Google Play</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow" data-i18n="contact_eyebrow">Контакты</p>
+                    <h2 data-i18n="contact_title">Свяжитесь с нами удобным способом</h2>
+                    <p class="contact-lead" data-i18n="contact_lead">Выберите канал связи по вашей задаче. Мы быстро отвечаем и помогаем с запуском, настройкой и поддержкой.</p>
+                </div>
+                <div class="contact-layout">
+                    <article class="contact-summary">
+                        <h3 data-i18n="contact_summary_title">Как получить ответ быстрее</h3>
+                        <p class="contact-summary-note" data-i18n="contact_summary_note">Обычно отвечаем в течение 5–15 минут в рабочее время.</p>
+                        <ul class="contact-summary-list">
+                            <li data-i18n="contact_summary_li_1">Telegram: самый быстрый канал для запуска и рабочих вопросов.</li>
+                            <li data-i18n="contact_summary_li_2">WhatsApp: удобно для быстрых уточнений и связи с командой.</li>
+                            <li data-i18n="contact_summary_li_3">Email: для договоров, документов и подробных запросов.</li>
+                        </ul>
+                    </article>
+                    <div class="contact-grid">
+                        <a class="contact-card" href="mailto:yakubiabduqahhor@gmail.com">
+                            <div class="contact-card-head">
+                                <span data-i18n="contact_email_label">Email</span>
+                                <small data-i18n="contact_email_badge">Для документов</small>
+                            </div>
+                            <strong>yakubiabduqahhor@gmail.com</strong>
+                            <em data-i18n="contact_email_hint">Подходит для официальных обращений и детальных вопросов.</em>
+                            <span class="contact-action" data-i18n="contact_email_action">Написать на Email</span>
                         </a>
-                        <a href="#" class="btn btn-secondary">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M3.609 3.609L13.09 13.09 3.609 3.609zM13.09 13.09l7.82-4.516-4.719-2.723L13.09 13.09zm0 0l-7.481 7.481 4.516-7.82L13.09 13.09zm0 0l7.3 7.3-2.723-4.719L13.09 13.09z" stroke="currentColor" stroke-width="1.5"/>
-                            </svg>
-                            Google Play
+                        <a class="contact-card" href="https://t.me/shogasupport">
+                            <div class="contact-card-head">
+                                <span data-i18n="contact_telegram_label">Telegram</span>
+                                <small data-i18n="contact_telegram_badge">Самый быстрый ответ</small>
+                            </div>
+                            <strong>@shogasupport</strong>
+                            <em data-i18n="contact_telegram_hint">Лучший канал для старта, настройки и ежедневной поддержки.</em>
+                            <span class="contact-action" data-i18n="contact_telegram_action">Открыть Telegram</span>
+                        </a>
+                        <a class="contact-card" href="https://wa.me/79961255676">
+                            <div class="contact-card-head">
+                                <span data-i18n="contact_whatsapp_label">WhatsApp</span>
+                                <small data-i18n="contact_whatsapp_badge">Быстрые вопросы</small>
+                            </div>
+                            <strong>+7 996 125 56 76</strong>
+                            <em data-i18n="contact_whatsapp_hint">Удобно для оперативной связи по телефону и в чате.</em>
+                            <span class="contact-action" data-i18n="contact_whatsapp_action">Открыть WhatsApp</span>
                         </a>
                     </div>
                 </div>
-                <div class="hero-image slide-in">
-                    <div class="phone-showcase">
-                        <div class="hero-screens">
-                            <img src="images/Финансы.png" alt="Hamyon финансы" class="hero-screen is-active">
-                            <img src="images/Долги.png" alt="Hamyon долги" class="hero-screen">
-                            <img src="images/Магазин.png" alt="Hamyon магазин" class="hero-screen">
-                            <img src="images/Товары.png" alt="Hamyon товары" class="hero-screen">
-                            <img src="images/Касса.png" alt="Hamyon касса" class="hero-screen">
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <h2 class="section-title">Всё необходимое в одном приложении</h2>
-            <p class="section-subtitle">Мощные инструменты для управления вашими финансами и бизнесом</p>
-            
-            <div class="features-grid">
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3>Учёт финансов</h3>
-                    <p>Контролируйте доходы и расходы, управляйте счетами и категориями операций. Получайте детальную статистику по периодам.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3>Управление долгами</h3>
-                    <p>Отслеживайте долги и займы с подробной историей операций. Автоматические напоминания о возврате средств.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 7h-9M14 3v4M6 21V3M2 21h8V3H2z"/>
-                        </svg>
-                    </div>
-                    <h3>Курсы валют</h3>
-                    <p>Актуальные курсы от ведущих банков Таджикистана. Автоматическое обновление и сравнение курсов в реальном времени.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
-                        </svg>
-                    </div>
-                    <h3>Склад и товары</h3>
-                    <p>Управляйте товарами, остатками, категориями и партиями. Полный контроль над складским учётом.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                        </svg>
-                    </div>
-                    <h3>Магазин (POS)</h3>
-                    <p>Полноценная касса для продаж с поддержкой сканера штрих-кодов, печатью чеков и автоматическим учётом остатков.</p>
-                </div>
-
-                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                        </svg>
-                    </div>
-                    <h3>Задачи и привычки</h3>
-                    <p>Планируйте задачи, формируйте полезные привычки, отслеживайте прогресс и достигайте своих целей.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Screenshots Section -->
-    <section id="screenshots" class="screenshots">
-        <div class="container">
-            <h2 class="section-title">Интуитивный интерфейс</h2>
-            <p class="section-subtitle">Красивый дизайн, продуманный до мелочей</p>
-            
-            <div class="screenshots-grid">
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="0">
-                    <img src="images/Финансы.png" alt="Учёт финансов">
-                    <div class="screenshot-label">Учёт финансов</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/Долги.png" alt="Управление долгами">
-                    <div class="screenshot-label">Управление долгами</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/История долга.png" alt="История операций">
-                    <div class="screenshot-label">История операций</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="0">
-                    <img src="images/Валюта.png" alt="Курсы валют">
-                    <div class="screenshot-label">Курсы валют</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/Магазин.png" alt="Магазин">
-                    <div class="screenshot-label">Магазин</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/Товары.png" alt="Товары">
-                    <div class="screenshot-label">Товары</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="0">
-                    <img src="images/Касса.png" alt="Касса">
-                    <div class="screenshot-label">Касса (POS)</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="images/Касса сканер.png" alt="Сканер штрих-кодов">
-                    <div class="screenshot-label">Сканер штрих-кодов</div>
-                </div>
-                <div class="screenshot-card" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="images/Детали товар.png" alt="Детали товара">
-                    <div class="screenshot-label">Детали товара</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <h2>Почему выбирают Hamyon</h2>
-                    <div class="about-highlight">
-                        <h3>📱 Начните с телефона — без лишних затрат</h3>
-                        <p>Hamyon — идеальное решение для владельцев торговых точек на рынках, небольших магазинов и предпринимателей. Не тратьте деньги на дорогое оборудование и кассовые системы. У вас уже есть всё необходимое — ваш смартфон! Начните оцифровывать свой бизнес прямо сейчас.</p>
-                    </div>
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <div class="about-feature-icon">✓</div>
-                            <div>
-                                <h4>Безопасность данных</h4>
-                                <p>Все данные хранятся локально на вашем устройстве с шифрованием AES-256</p>
-                            </div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="about-feature-icon">✓</div>
-                            <div>
-                                <h4>Автоматический бэкап</h4>
-                                <p>Настройте автоматическое резервное копирование через Telegram бота</p>
-                            </div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="about-feature-icon">✓</div>
-                            <div>
-                                <h4>Работает оффлайн</h4>
-                                <p>Используйте все функции без подключения к интернету</p>
-                            </div>
-                        </div>
-                        <div class="about-feature">
-                            <div class="about-feature-icon">✓</div>
-                            <div>
-                                <h4>Простой интерфейс</h4>
-                                <p>Интуитивный дизайн, разработанный с учётом лучших практик UX</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-stats" data-aos="fade-left">
-                    <div class="stat-card">
-                        <div class="stat-number counter" data-target="10">0</div>
-                        <div class="stat-label">Функций</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Доступность</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number counter" data-target="100">0</div>
-                        <div class="stat-label">% Безопасность</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Свяжитесь с нами</h2>
-            <p class="section-subtitle">Есть вопросы? Мы всегда рады помочь</p>
-            
-            <div class="contact-cards">
-                <div class="contact-card" data-aos="flip-up">
-                    <div class="contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </div>
-                    <h3>Email</h3>
-                    <a href="mailto:yakubiabduqahhor@gmail.com">yakubiabduqahhor@gmail.com</a>
-                </div>
-
-                <div class="contact-card" data-aos="flip-up" data-aos-delay="100">
-                    <div class="contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                        </svg>
-                    </div>
-                    <h3>Telegram</h3>
-                    <a href="https://t.me/shogasupport">@shogasupport</a>
-                </div>
-
-                <div class="contact-card" data-aos="flip-up" data-aos-delay="200">
-                    <div class="contact-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                    </div>
-                    <h3>WhatsApp</h3>
-                    <a href="https://wa.me/79961255676">+7 996 125 56 76</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <div class="cta-content" data-aos="zoom-in">
-                <h2>Начните управлять финансами уже сегодня</h2>
-                <p>Скачайте Hamyon и получите полный контроль над своими финансами</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-light">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="currentColor"/>
-                        </svg>
-                        App Store
-                    </a>
-                    <a href="#" class="btn btn-light">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M3.609 3.609L13.09 13.09 3.609 3.609zM13.09 13.09l7.82-4.516-4.719-2.723L13.09 13.09zm0 0l-7.481 7.481 4.516-7.82L13.09 13.09zm0 0l7.3 7.3-2.723-4.719L13.09 13.09z" stroke="currentColor" stroke-width="1.5"/>
-                        </svg>
-                        Google Play
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Hamyon</h3>
-                    <p>Умное управление финансами и бизнесом</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Продукт</h4>
-                        <a href="#features">Возможности</a>
-                        <a href="#screenshots">Скриншоты</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Поддержка</h4>
-                        <a href="#contact">Контакты</a>
-                        <a href="mailto:yakubiabduqahhor@gmail.com">Email</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Юридическое</h4>
-                        <a href="terms.html">Условия использования</a>
-                        <a href="privacy.html">Политика конфиденциальности</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Hamyon. Все права защищены.</p>
-            </div>
+        <div class="wrap footer-inner">
+            <span class="footer-brand">
+                <img src="images/app_icon.png" alt="Логотип Hisob" width="28" height="28" loading="lazy">
+                <span>Hisob</span>
+            </span>
+            <a href="terms.html" data-i18n="footer_terms">Условия</a>
+            <a href="privacy.html" data-i18n="footer_privacy">Политика</a>
+            <span class="copy">&copy; 2026</span>
         </div>
     </footer>
 
-    <!-- Animation Scripts -->
     <script>
-        // Простая библиотека анимаций при скролле
-        function initAOS() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('aos-animate');
-                    }
-                });
-            }, { threshold: 0.1 });
+        const I18N = {
+            ru: {
+                meta_title: 'Hisob — учёт, касса и контроль бизнеса в одном приложении',
+                meta_desc: 'Hisob — мобильная система учёта для магазинов и предпринимателей: финансы, долги, склад и касса в одном приложении. Работает офлайн.',
+                language_label: 'Язык',
+                theme_label: 'Тема',
+                nav_features: 'Возможности',
+                nav_support: 'Поддержка',
+                nav_for_who: 'Кому подходит',
+                nav_faq: 'Вопросы',
+                header_download: 'Скачать',
+                hero_eyebrow: 'Платформа для малого и среднего бизнеса',
+                hero_title: 'Управляйте бизнесом уверенно и держите все под контролем',
+                hero_lead: 'Hisob ведет кассу, склад, долги и финансы в одном месте. Все ключевые цифры всегда под рукой в телефоне.',
+                hero_metric_top: 'доступ к данным магазина',
+                hero_metric_bottom: 'вместо нескольких сервисов',
+                proof_eyebrow: 'Преимущества',
+                proof_title: 'Почему бизнес выбирает Hisob',
+                proof_1_title: 'Современная mobile-first система',
+                proof_1_text: 'Учет финансов и продаж в смартфоне. Удобно для базаров, торговых точек и мест, где сложно работать с компьютером.',
+                proof_2_title: 'Запуск без оборудования',
+                proof_2_text: 'Не нужно сразу покупать кассу, сканеры и принтеры. Можно начать работу с нулевым бюджетом.',
+                proof_3_title: 'Без больших стартовых платежей',
+                proof_3_text: 'Для новых клиентов есть 14-дневный пробный период. Подписку можно выбрать на удобный срок, без крупных единовременных оплат.',
+                proof_4_title: 'Курсы банков Таджикистана',
+                proof_4_text: 'В приложении собраны курсы валют банков Таджикистана, и мы подбираем для вас самый выгодный курс.',
+                about_eyebrow: 'Возможности',
+                about_title: 'Главные функции и экраны приложения',
+                feature_1_title: 'Финансы и аналитика',
+                feature_1_text: 'Доходы, расходы и динамика по периодам. Сразу видно реальную картину.',
+                feature_2_title: 'Долги и обязательства',
+                feature_2_text: 'История каждого долга: сумма, дата, возврат и напоминания.',
+                feature_3_title: 'Склад и товары',
+                feature_3_text: 'Остатки, категории и движение товаров без ручных таблиц.',
+                feature_4_title: 'Касса и продажи',
+                feature_4_text: 'Быстрые продажи, сканер штрих-кодов и учет каждой операции.',
+                feature_5_title: 'Курсы валют',
+                feature_5_text: 'Собраны курсы валют банков Таджикистана. Помогаем выбрать самый выгодный курс.',
+                feature_6_title: 'История продаж',
+                feature_6_text: 'Смотрите прошлые операции и быстро проверяйте динамику.',
+                trust_eyebrow: 'Внедрение и поддержка',
+                trust_title: 'Помогаем запустить учет спокойно и без лишней сложности',
+                trust_li_1: '<strong>Настройка под ваш бизнес:</strong> адаптируем приложение под ваши процессы и формат учета.',
+                trust_li_2: '<strong>Быстрый старт:</strong> помогаем начать без закупки большого количества оборудования.',
+                trust_li_3: '<strong>Обучение команды:</strong> показываем, как работать с нужными разделами без лишней теории.',
+                trust_li_4: '<strong>Сопровождение:</strong> остаемся на связи, помогаем с вопросами и развитием системы.',
+                trust_panel_title: 'Как проходит запуск',
+                trust_step_1_title: 'Разбираем ваш процесс',
+                trust_step_1_text: 'Согласуем, как у вас ведутся продажи, склад, долги и контроль денег.',
+                trust_step_2_title: 'Настраиваем и запускаем',
+                trust_step_2_text: 'Переносим структуру учета в приложение и готовим команду к работе.',
+                trust_step_3_title: 'Сопровождаем после старта',
+                trust_step_3_text: 'Отвечаем на вопросы, помогаем с улучшениями и настройкой под новые задачи.',
+                who_eyebrow: 'Кому подходит',
+                who_title: 'Кому подойдет Hisob',
+                who_tab_1: 'Магазины и точки продаж',
+                who_tab_2: 'Аптеки и фастфуд',
+                who_tab_3: 'ИП и семейный бизнес',
+                who_tab_4: 'Учет долгов и финансов',
+                who_panel_1_title: 'Для магазинов, лавок, киосков и торговых точек',
+                who_panel_1_text: 'Подходит тем, кому нужен быстрый и понятный учет продаж, остатков и денег без сложного внедрения.',
+                who_panel_1_tag_1: 'Касса (POS)',
+                who_panel_1_tag_2: 'Склад и остатки',
+                who_panel_1_tag_3: 'Продажи и возвраты',
+                who_panel_2_title: 'Для аптек, фастфуда и сервисных точек',
+                who_panel_2_text: 'Удобно для быстрого обслуживания клиентов, контроля товарных остатков и ежедневной выручки в одном приложении.',
+                who_panel_2_tag_1: 'Быстрые продажи',
+                who_panel_2_tag_2: 'Контроль остатков',
+                who_panel_2_tag_3: 'Работа в телефоне',
+                who_panel_3_title: 'Для ИП и семейных бизнесов',
+                who_panel_3_text: 'Один инструмент для финансов, долгов, товаров и продаж. Легко контролировать процессы всей командой.',
+                who_panel_3_tag_1: 'Финансы',
+                who_panel_3_tag_2: 'Долги',
+                who_panel_3_tag_3: 'Отчеты',
+                who_panel_4_title: 'Для тех, кто ведет долги и финансы вручную',
+                who_panel_4_text: 'Переведите ручной учет в понятный мобильный формат: долги, поступления, расходы и история операций всегда под рукой.',
+                who_panel_4_tag_1: 'Долги и расчеты',
+                who_panel_4_tag_2: 'Простая аналитика',
+                who_panel_4_tag_3: 'Без таблиц и блокнотов',
+                faq_eyebrow: 'FAQ',
+                faq_title: 'Частые вопросы',
+                faq_q_1: 'Для кого подходит Hisob?',
+                faq_a_1: 'Для владельцев торговых точек, небольших магазинов и предпринимателей.',
+                faq_q_2: 'Нужен ли интернет для работы?',
+                faq_a_2: 'Нет. Основные функции работают офлайн, а при подключении можно сделать синхронизацию.',
+                faq_q_3: 'Безопасны ли данные?',
+                faq_a_3: 'Да. Данные шифруются, хранятся локально, резервные копии доступны только владельцу.',
+                faq_q_4: 'Есть ли функции кассы и сканирования?',
+                faq_a_4: 'Да. Есть продажи, сканер штрих-кодов и работа с товарами.',
+                faq_q_5: 'Сколько стоит использование?',
+                faq_a_5: 'Для новых клиентов есть 14 дней пробного периода. Дальше можно выбрать подписку на удобный срок, без больших стартовых платежей.',
+                cta_eyebrow: 'Старт',
+                cta_title: 'Начните учет сегодня',
+                cta_text: 'Скачайте приложение и держите продажи, склад и финансы под контролем. По вашему желанию полностью настроим систему под ваш бизнес и всегда готовы к сотрудничеству.',
+                contact_eyebrow: 'Контакты',
+                contact_title: 'Свяжитесь с нами удобным способом',
+                contact_lead: 'Выберите канал связи по вашей задаче. Мы быстро отвечаем и помогаем с запуском, настройкой и поддержкой.',
+                contact_summary_title: 'Как получить ответ быстрее',
+                contact_summary_note: 'Обычно отвечаем в течение 5–15 минут в рабочее время.',
+                contact_summary_li_1: 'Telegram: самый быстрый канал для запуска и рабочих вопросов.',
+                contact_summary_li_2: 'WhatsApp: удобно для быстрых уточнений и связи с командой.',
+                contact_summary_li_3: 'Email: для договоров, документов и подробных запросов.',
+                contact_email_label: 'Email',
+                contact_email_badge: 'Для документов',
+                contact_email_hint: 'Подходит для официальных обращений и детальных вопросов.',
+                contact_email_action: 'Написать на Email',
+                contact_telegram_label: 'Telegram',
+                contact_telegram_badge: 'Самый быстрый ответ',
+                contact_telegram_hint: 'Лучший канал для старта, настройки и ежедневной поддержки.',
+                contact_telegram_action: 'Открыть Telegram',
+                contact_whatsapp_label: 'WhatsApp',
+                contact_whatsapp_badge: 'Быстрые вопросы',
+                contact_whatsapp_hint: 'Удобно для оперативной связи по телефону и в чате.',
+                contact_whatsapp_action: 'Открыть WhatsApp',
+                footer_terms: 'Условия',
+                footer_privacy: 'Политика',
+            },
+            tj: {
+                meta_title: 'Hisob — муҳосиба, касса ва назорати бизнес дар як барнома',
+                meta_desc: 'Hisob — системаи мобилии муҳосиба барои мағозаҳо ва соҳибкорон: молия, қарз, анбор ва касса дар як барнома.',
+                language_label: 'Забон',
+                theme_label: 'Мавзӯъ',
+                nav_features: 'Имкониятҳо',
+                nav_support: 'Дастгирӣ',
+                nav_for_who: 'Барои кӣ',
+                nav_faq: 'Саволҳо',
+                header_download: 'Боргирӣ',
+                hero_eyebrow: 'Платформа барои бизнеси хурд ва миёна',
+                hero_title: 'Бизнесро бо боварӣ идора кунед ва ҳама чизро зери назорат гиред',
+                hero_lead: 'Hisob касса, анбор, қарзҳо ва молияро дар як ҷо ҷамъ мекунад. Ҳама рақамҳои муҳим ҳамеша дар телефон дастрасанд.',
+                hero_metric_top: 'дастрасӣ ба маълумоти мағоза',
+                hero_metric_bottom: 'ба ҷойи чандин сервис',
+                proof_eyebrow: 'Афзалиятҳо',
+                proof_title: 'Чаро бизнес Hisob-ро интихоб мекунад',
+                proof_1_title: 'Системаи муосири mobile-first',
+                proof_1_text: 'Муҳосибаи молия ва фурӯш дар смартфон. Барои бозорҳо ва нуқтаҳои савдо хеле қулай аст.',
+                proof_2_title: 'Оғоз бе таҷҳизот',
+                proof_2_text: 'Дар оғоз лозим нест касса, сканер ва принтер харед. Метавон бо буҷаи сифр оғоз кард.',
+                proof_3_title: 'Бе пардохти калони аввалия',
+                proof_3_text: 'Барои муштариёни нав давраи озмоишии 14-рӯза ҳаст. Обунаро барои муҳлати қулай интихоб мекунед.',
+                proof_4_title: 'Қурбҳои бонкҳои Тоҷикистон',
+                proof_4_text: 'Дар барнома қурбҳои асъори бонкҳои Тоҷикистон ҷамъ шудаанд ва мо қурби фоиданокро интихоб мекунем.',
+                about_eyebrow: 'Имкониятҳо',
+                about_title: 'Функсияҳои асосӣ ва экранҳои барнома',
+                feature_1_title: 'Молия ва таҳлил',
+                feature_1_text: 'Даромад, хароҷот ва динамика бо давраҳо. Манзараи воқеӣ зуд намоён мешавад.',
+                feature_2_title: 'Қарзҳо ва ӯҳдадориҳо',
+                feature_2_text: 'Таърихи ҳар қарз: сумма, сана, баргардонӣ ва ёдоварӣ.',
+                feature_3_title: 'Анбор ва молҳо',
+                feature_3_text: 'Боқимонда, категория ва ҳаракати молҳо бе ҷадвалҳои дастӣ.',
+                feature_4_title: 'Касса ва фурӯш',
+                feature_4_text: 'Фурӯши зуд, сканери штрих-код ва баҳисобгирии ҳар амалиёт.',
+                feature_5_title: 'Қурбҳои асъор',
+                feature_5_text: 'Қурбҳои бонкҳои Тоҷикистон ҷамъ оварда шудаанд. Барои интихоби қурби беҳтарин кӯмак мекунем.',
+                feature_6_title: 'Таърихи фурӯш',
+                feature_6_text: 'Амалиёти гузашта ва динамикаро зуд санҷед.',
+                trust_eyebrow: 'Ҷорӣкунӣ ва дастгирӣ',
+                trust_title: 'Кӯмак мекунем муҳосибаро ором ва бе душвории изофӣ роҳандозӣ кунед',
+                trust_li_1: '<strong>Танзим ба бизнеси шумо:</strong> барномаро ба раванд ва формати ҳисоби шумо мутобиқ мекунем.',
+                trust_li_2: '<strong>Оғози зуд:</strong> бе хариди зиёди таҷҳизот ба кор шурӯъ мекунем.',
+                trust_li_3: '<strong>Омӯзиши даста:</strong> нишон медиҳем кадом қисмҳоро чӣ гуна истифода баред.',
+                trust_li_4: '<strong>Ҳамроҳӣ:</strong> ҳамеша дар тамос ҳастем ва бо рушд кумак мекунем.',
+                trust_panel_title: 'Оғоз чӣ гуна мегузарад',
+                trust_step_1_title: 'Раванди шуморо меомӯзем',
+                trust_step_1_text: 'Фурӯш, анбор, қарз ва назорати маблағро якҷо мувофиқа мекунем.',
+                trust_step_2_title: 'Танзим ва оғоз',
+                trust_step_2_text: 'Сохтори ҳисобро ба барнома мегузаронем ва дастаро омода мекунем.',
+                trust_step_3_title: 'Дастгирӣ баъд аз оғоз',
+                trust_step_3_text: 'Ба саволҳо ҷавоб медиҳем ва барои такмил кумак мекунем.',
+                who_eyebrow: 'Барои кӣ',
+                who_title: 'Hisob барои кӣ мувофиқ аст',
+                who_tab_1: 'Мағозаҳо ва нуқтаҳои фурӯш',
+                who_tab_2: 'Дорухона ва фастфуд',
+                who_tab_3: 'ИП ва бизнеси оилавӣ',
+                who_tab_4: 'Ҳисоби қарз ва молия',
+                who_panel_1_title: 'Барои мағоза, дукон, киоск ва нуқтаҳои савдо',
+                who_panel_1_text: 'Барои онҳое, ки мехоҳанд фурӯш, боқимонда ва пулро зуду фаҳмо ба тартиб дароранд.',
+                who_panel_1_tag_1: 'Касса (POS)',
+                who_panel_1_tag_2: 'Анбор ва боқимонда',
+                who_panel_1_tag_3: 'Фурӯш ва баргардонӣ',
+                who_panel_2_title: 'Барои дорухона, фастфуд ва нуқтаҳои хизматрасонӣ',
+                who_panel_2_text: 'Барои хизматрасонии зуд, назорати боқимонда ва даромади ҳаррӯза дар як барнома қулай аст.',
+                who_panel_2_tag_1: 'Фурӯши зуд',
+                who_panel_2_tag_2: 'Назорати боқимонда',
+                who_panel_2_tag_3: 'Кор дар телефон',
+                who_panel_3_title: 'Барои ИП ва бизнеси оилавӣ',
+                who_panel_3_text: 'Як асбоб барои молия, қарз, мол ва фурӯш. Назорат барои тамоми даста осон мешавад.',
+                who_panel_3_tag_1: 'Молия',
+                who_panel_3_tag_2: 'Қарз',
+                who_panel_3_tag_3: 'Ҳисобот',
+                who_panel_4_title: 'Барои онҳое, ки қарз ва молияро дастӣ менависанд',
+                who_panel_4_text: 'Ҳисоби дастиро ба формати фаҳмои мобилӣ гузаронед: қарз, даромад, хароҷот ва таърихи амалиёт ҳамеша дар даст.',
+                who_panel_4_tag_1: 'Қарз ва ҳисоббаробаркунӣ',
+                who_panel_4_tag_2: 'Таҳлили содда',
+                who_panel_4_tag_3: 'Бе ҷадвал ва дафтар',
+                faq_eyebrow: 'FAQ',
+                faq_title: 'Саволҳои маъмул',
+                faq_q_1: 'Hisob барои кӣ мувофиқ аст?',
+                faq_a_1: 'Барои соҳибони нуқтаҳои савдо, мағозаҳои хурд ва соҳибкорон.',
+                faq_q_2: 'Барои кор интернет лозим аст?',
+                faq_a_2: 'Не. Функсияҳои асосӣ офлайн кор мекунанд, бо интернет синхронсозӣ мекунед.',
+                faq_q_3: 'Маълумот бехатар аст?',
+                faq_a_3: 'Бале. Маълумот рамзгузорӣ мешавад, локалӣ нигоҳ дошта мешавад ва backup танҳо барои соҳиби аккаунт дастрас аст.',
+                faq_q_4: 'Касса ва сканер ҳаст?',
+                faq_a_4: 'Бале. Фурӯш, сканери штрих-код ва кор бо молҳо ҳаст.',
+                faq_q_5: 'Арзиш чанд аст?',
+                faq_a_5: 'Барои муштариёни нав 14 рӯзи озмоишӣ ҳаст. Баъдан обунаи муҳлати қулай интихоб мекунед.',
+                cta_eyebrow: 'Оғоз',
+                cta_title: 'Муҳосибаро имрӯз оғоз кунед',
+                cta_text: 'Барномаро зеркашӣ кунед ва фурӯш, анбор ва молияро зери назорат гиред. Бо хоҳиши шумо системаро пурра ба бизнеси шумо мутобиқ мекунем.',
+                contact_eyebrow: 'Тамос',
+                contact_title: 'Бо роҳи қулай бо мо дар тамос шавед',
+                contact_lead: 'Канали мувофиқро барои масъалаи худ интихоб кунед. Мо зуд ҷавоб медиҳем ва дар оғозу танзим кумак мекунем.',
+                contact_summary_title: 'Чӣ тавр зудтар ҷавоб гиред',
+                contact_summary_note: 'Одатан дар вақти корӣ дар 5–15 дақиқа ҷавоб медиҳем.',
+                contact_summary_li_1: 'Telegram: канали зудтарин барои оғоз ва саволҳои корӣ.',
+                contact_summary_li_2: 'WhatsApp: барои саволҳои кӯтоҳ ва алоқаи фаврӣ қулай аст.',
+                contact_summary_li_3: 'Email: барои шартнома, ҳуҷҷат ва дархостҳои муфассал.',
+                contact_email_label: 'Email',
+                contact_email_badge: 'Барои ҳуҷҷатҳо',
+                contact_email_hint: 'Барои муроҷиатҳои расмӣ ва саволҳои муфассал мувофиқ аст.',
+                contact_email_action: 'Навиштан ба Email',
+                contact_telegram_label: 'Telegram',
+                contact_telegram_badge: 'Ҷавоби зудтарин',
+                contact_telegram_hint: 'Канали беҳтарин барои оғоз, танзим ва дастгирии ҳаррӯза.',
+                contact_telegram_action: 'Кушодани Telegram',
+                contact_whatsapp_label: 'WhatsApp',
+                contact_whatsapp_badge: 'Саволҳои фаврӣ',
+                contact_whatsapp_hint: 'Барои алоқаи зуд дар телефон ва чат хеле қулай аст.',
+                contact_whatsapp_action: 'Кушодани WhatsApp',
+                footer_terms: 'Шартҳо',
+                footer_privacy: 'Сиёсат',
+            },
+            uz: {
+                meta_title: 'Hisob — hisob, kassa va biznes nazorati bitta ilovada',
+                meta_desc: 'Hisob — do‘kon va tadbirkorlar uchun mobil hisob tizimi: moliya, qarz, ombor va kassa bitta ilovada.',
+                language_label: 'Til',
+                theme_label: 'Mavzu',
+                nav_features: 'Imkoniyatlar',
+                nav_support: 'Yordam',
+                nav_for_who: 'Kim uchun',
+                nav_faq: 'Savollar',
+                header_download: 'Yuklab olish',
+                hero_eyebrow: 'Kichik va o‘rta biznes uchun platforma',
+                hero_title: 'Biznesni ishonch bilan boshqaring va hammasini nazoratda tuting',
+                hero_lead: 'Hisob kassa, ombor, qarz va moliyani bitta joyda birlashtiradi. Muhim raqamlar doim telefoningizda.',
+                hero_metric_top: 'do‘kon ma’lumotlariga kirish',
+                hero_metric_bottom: 'bir nechta servis o‘rniga',
+                proof_eyebrow: 'Afzalliklar',
+                proof_title: 'Nega biznes Hisob-ni tanlaydi',
+                proof_1_title: 'Zamonaviy mobile-first tizim',
+                proof_1_text: 'Moliya va savdo hisobi smartfonda. Bozor va savdo nuqtalari uchun juda qulay.',
+                proof_2_title: 'Uskunasiz start',
+                proof_2_text: 'Boshlashda kassa, skaner va printer sotib olish shart emas. Nol budjet bilan boshlash mumkin.',
+                proof_3_title: 'Katta boshlang‘ich to‘lovlarsiz',
+                proof_3_text: 'Yangi mijozlar uchun 14 kunlik sinov bor. Obunani qulay muddatga tanlaysiz.',
+                proof_4_title: 'Tojikiston banklari kurslari',
+                proof_4_text: 'Ilovada Tojikiston banklari valyuta kurslari jamlangan va eng foydali kursni tanlashga yordam beramiz.',
+                about_eyebrow: 'Imkoniyatlar',
+                about_title: 'Ilovaning asosiy funksiyalari va ekranlari',
+                feature_1_title: 'Moliya va tahlil',
+                feature_1_text: 'Daromad, xarajat va davrlar bo‘yicha dinamika. Haqiqiy holat darhol ko‘rinadi.',
+                feature_2_title: 'Qarzlar va majburiyatlar',
+                feature_2_text: 'Har bir qarz tarixi: summa, sana, qaytarish va eslatmalar.',
+                feature_3_title: 'Ombor va mahsulotlar',
+                feature_3_text: 'Qoldiq, kategoriyalar va mahsulot harakati qo‘lda jadvalsiz.',
+                feature_4_title: 'Kassa va savdo',
+                feature_4_text: 'Tez savdo, shtrix-kod skaneri va har bir operatsiya hisobi.',
+                feature_5_title: 'Valyuta kurslari',
+                feature_5_text: 'Tojikiston banklari kurslari jamlangan. Eng foydali kursni tanlashga yordam beramiz.',
+                feature_6_title: 'Savdo tarixi',
+                feature_6_text: 'Oldingi operatsiyalarni ko‘ring va dinamikani tez tekshiring.',
+                trust_eyebrow: 'Joriy etish va yordam',
+                trust_title: 'Hisobni tinch va ortiqcha murakkabliksiz ishga tushirishga yordam beramiz',
+                trust_li_1: '<strong>Biznesingizga moslash:</strong> ilovani jarayon va hisob formatingizga moslab beramiz.',
+                trust_li_2: '<strong>Tez start:</strong> ko‘p uskunasiz ishni boshlashga yordam beramiz.',
+                trust_li_3: '<strong>Jamoani o‘qitish:</strong> kerakli bo‘limlardan qanday foydalanishni ko‘rsatamiz.',
+                trust_li_4: '<strong>Qo‘llab-quvvatlash:</strong> doim aloqadamiz va rivojlanishga yordam beramiz.',
+                trust_panel_title: 'Ishga tushirish qanday o‘tadi',
+                trust_step_1_title: 'Jarayoningizni tahlil qilamiz',
+                trust_step_1_text: 'Savdo, ombor, qarz va pul nazoratini birga kelishib olamiz.',
+                trust_step_2_title: 'Sozlaymiz va ishga tushiramiz',
+                trust_step_2_text: 'Hisob tuzilmasini ilovaga o‘tkazamiz va jamoani tayyorlaymiz.',
+                trust_step_3_title: 'Startdan keyin ham yordam beramiz',
+                trust_step_3_text: 'Savollarga javob beramiz va yangi vazifalarga moslab beramiz.',
+                who_eyebrow: 'Kim uchun',
+                who_title: 'Hisob kimlar uchun mos',
+                who_tab_1: 'Do‘kon va savdo nuqtalari',
+                who_tab_2: 'Dorixona va fastfud',
+                who_tab_3: 'YTT va oilaviy biznes',
+                who_tab_4: 'Qarz va moliya hisobi',
+                who_panel_1_title: 'Do‘kon, lavka, kiosk va savdo nuqtalari uchun',
+                who_panel_1_text: 'Savdo, qoldiq va pulni murakkab joriy etishsiz tez va tushunarli tartibga keltirish uchun.',
+                who_panel_1_tag_1: 'Kassa (POS)',
+                who_panel_1_tag_2: 'Ombor va qoldiq',
+                who_panel_1_tag_3: 'Savdo va qaytarish',
+                who_panel_2_title: 'Dorixona, fastfud va servis nuqtalari uchun',
+                who_panel_2_text: 'Mijozlarga tez xizmat, mahsulot qoldig‘ini nazorat qilish va kunlik tushumni bir ilovada yuritish uchun qulay.',
+                who_panel_2_tag_1: 'Tez savdo',
+                who_panel_2_tag_2: 'Qoldiq nazorati',
+                who_panel_2_tag_3: 'Telefonda ishlash',
+                who_panel_3_title: 'YTT va oilaviy bizneslar uchun',
+                who_panel_3_text: 'Moliya, qarz, mahsulot va savdo uchun bitta vosita. Jamoa nazorati osonlashadi.',
+                who_panel_3_tag_1: 'Moliya',
+                who_panel_3_tag_2: 'Qarz',
+                who_panel_3_tag_3: 'Hisobotlar',
+                who_panel_4_title: 'Qarz va moliyani qo‘lda yuritadiganlar uchun',
+                who_panel_4_text: 'Qo‘lda hisobni tushunarli mobil formatga o‘tkazing: qarz, tushum, xarajat va operatsiyalar tarixi doim yoningizda.',
+                who_panel_4_tag_1: 'Qarz va hisob-kitob',
+                who_panel_4_tag_2: 'Sodda tahlil',
+                who_panel_4_tag_3: 'Jadval va daftarsiz',
+                faq_eyebrow: 'FAQ',
+                faq_title: 'Ko‘p so‘raladigan savollar',
+                faq_q_1: 'Hisob kimlar uchun mos?',
+                faq_a_1: 'Savdo nuqtalari egalari, kichik do‘konlar va tadbirkorlar uchun.',
+                faq_q_2: 'Ishlash uchun internet kerakmi?',
+                faq_a_2: 'Yo‘q. Asosiy funksiyalar offline ishlaydi, internet bo‘lsa sinxronizatsiya qilasiz.',
+                faq_q_3: 'Ma’lumotlar xavfsizmi?',
+                faq_a_3: 'Ha. Ma’lumotlar shifrlanadi, qurilmada saqlanadi, backup faqat egasiga ochiq.',
+                faq_q_4: 'Kassa va skaner funksiyasi bormi?',
+                faq_a_4: 'Ha. Savdo, shtrix-kod skaneri va mahsulot bilan ishlash bor.',
+                faq_q_5: 'Narxi qancha?',
+                faq_a_5: 'Yangi mijozlar uchun 14 kunlik sinov bor. Keyin qulay muddatli obuna tanlanadi.',
+                cta_eyebrow: 'Start',
+                cta_title: 'Hisobni bugun boshlang',
+                cta_text: 'Ilovani yuklab oling va savdo, ombor hamda moliyani nazoratda tuting. Xohishingizga ko‘ra tizimni biznesingizga to‘liq moslaymiz.',
+                contact_eyebrow: 'Kontaktlar',
+                contact_title: 'Biz bilan qulay usulda bog‘laning',
+                contact_lead: 'Vazifangizga mos aloqa kanalini tanlang. Ishga tushirish, sozlash va qo‘llab-quvvatlashda tez yordam beramiz.',
+                contact_summary_title: 'Qanday tezroq javob olish mumkin',
+                contact_summary_note: 'Ish vaqtida odatda 5–15 daqiqada javob beramiz.',
+                contact_summary_li_1: 'Telegram: start va ish jarayonidagi savollar uchun eng tez kanal.',
+                contact_summary_li_2: 'WhatsApp: tezkor aniqliklar va jamoa bilan aloqa uchun qulay.',
+                contact_summary_li_3: 'Email: shartnoma, hujjatlar va batafsil so‘rovlar uchun.',
+                contact_email_label: 'Email',
+                contact_email_badge: 'Hujjatlar uchun',
+                contact_email_hint: 'Rasmiy murojaatlar va batafsil savollar uchun mos.',
+                contact_email_action: 'Emailga yozish',
+                contact_telegram_label: 'Telegram',
+                contact_telegram_badge: 'Eng tez javob',
+                contact_telegram_hint: 'Ishga tushirish, sozlash va kundalik yordam uchun eng yaxshi kanal.',
+                contact_telegram_action: 'Telegramni ochish',
+                contact_whatsapp_label: 'WhatsApp',
+                contact_whatsapp_badge: 'Tez savollar',
+                contact_whatsapp_hint: 'Telefon yoki chat orqali tez bog‘lanish uchun qulay.',
+                contact_whatsapp_action: 'WhatsAppni ochish',
+                footer_terms: 'Shartlar',
+                footer_privacy: 'Maxfiylik',
+            },
+            en: {
+                meta_title: 'Hisob — accounting, POS and business control in one app',
+                meta_desc: 'Hisob is a mobile accounting system for shops and entrepreneurs: finance, debts, inventory and POS in one app.',
+                language_label: 'Language',
+                theme_label: 'Theme',
+                nav_features: 'Features',
+                nav_support: 'Support',
+                nav_for_who: 'Who It Is For',
+                nav_faq: 'FAQ',
+                header_download: 'Download',
+                hero_eyebrow: 'Platform for small and medium businesses',
+                hero_title: 'Run your business confidently and keep everything under control',
+                hero_lead: 'Hisob combines POS, inventory, debts and finance in one place. Key numbers are always in your phone.',
+                hero_metric_top: 'access to store data',
+                hero_metric_bottom: 'instead of multiple services',
+                proof_eyebrow: 'Benefits',
+                proof_title: 'Why businesses choose Hisob',
+                proof_1_title: 'Modern mobile-first system',
+                proof_1_text: 'Finance and sales accounting on a smartphone. Perfect for markets and small retail points.',
+                proof_2_title: 'Start without equipment',
+                proof_2_text: 'No need to buy POS hardware, scanners or printers at the beginning. Start with zero budget.',
+                proof_3_title: 'No large upfront payments',
+                proof_3_text: 'New clients get a 14-day trial. Then you can choose a subscription period that fits you.',
+                proof_4_title: 'Tajikistan bank exchange rates',
+                proof_4_text: 'The app collects rates from Tajikistan banks and helps you choose the best rate.',
+                about_eyebrow: 'Features',
+                about_title: 'Core features and app screens',
+                feature_1_title: 'Finance and analytics',
+                feature_1_text: 'Income, expenses and period dynamics. You can immediately see the real picture.',
+                feature_2_title: 'Debts and obligations',
+                feature_2_text: 'Full debt history: amount, date, repayments and reminders.',
+                feature_3_title: 'Inventory and products',
+                feature_3_text: 'Stock levels, categories and movements without manual spreadsheets.',
+                feature_4_title: 'POS and sales',
+                feature_4_text: 'Fast checkout, barcode scanning and accounting for every operation.',
+                feature_5_title: 'Exchange rates',
+                feature_5_text: 'Rates from Tajikistan banks in one place. We help choose the best rate.',
+                feature_6_title: 'Sales history',
+                feature_6_text: 'Review past operations and quickly check business dynamics.',
+                trust_eyebrow: 'Onboarding & support',
+                trust_title: 'We help you launch accounting calmly and without extra complexity',
+                trust_li_1: '<strong>Business setup:</strong> we adapt the app to your process and accounting format.',
+                trust_li_2: '<strong>Fast start:</strong> we help launch without buying lots of equipment.',
+                trust_li_3: '<strong>Team training:</strong> we show how to use the needed sections clearly.',
+                trust_li_4: '<strong>Ongoing support:</strong> we stay in touch and help with improvements.',
+                trust_panel_title: 'How launch works',
+                trust_step_1_title: 'We analyze your process',
+                trust_step_1_text: 'We align how you run sales, inventory, debts and cash control.',
+                trust_step_2_title: 'We configure and launch',
+                trust_step_2_text: 'We migrate your accounting structure into the app and prepare your team.',
+                trust_step_3_title: 'We support after launch',
+                trust_step_3_text: 'We answer questions and adapt the system for new tasks.',
+                who_eyebrow: 'Who it is for',
+                who_title: 'Who Hisob is built for',
+                who_tab_1: 'Shops and sales points',
+                who_tab_2: 'Pharmacies and fast food',
+                who_tab_3: 'Sole owners & family business',
+                who_tab_4: 'Debt and finance accounting',
+                who_panel_1_title: 'For shops, kiosks and retail points',
+                who_panel_1_text: 'Best for businesses that need clear sales, stock and cash accounting without complex setup.',
+                who_panel_1_tag_1: 'POS checkout',
+                who_panel_1_tag_2: 'Inventory control',
+                who_panel_1_tag_3: 'Sales & returns',
+                who_panel_2_title: 'For pharmacies, fast food and service points',
+                who_panel_2_text: 'Great for fast customer service, stock control and daily revenue tracking in one app.',
+                who_panel_2_tag_1: 'Fast sales',
+                who_panel_2_tag_2: 'Stock control',
+                who_panel_2_tag_3: 'Phone-first workflow',
+                who_panel_3_title: 'For sole owners and family teams',
+                who_panel_3_text: 'One tool for finance, debts, products and sales with clear control for the whole team.',
+                who_panel_3_tag_1: 'Finance',
+                who_panel_3_tag_2: 'Debts',
+                who_panel_3_tag_3: 'Reports',
+                who_panel_4_title: 'For those who track debts and finance manually',
+                who_panel_4_text: 'Move manual records into a simple mobile workflow: debts, income, expenses and operation history in one place.',
+                who_panel_4_tag_1: 'Debts & settlements',
+                who_panel_4_tag_2: 'Simple analytics',
+                who_panel_4_tag_3: 'No sheets or notebooks',
+                faq_eyebrow: 'FAQ',
+                faq_title: 'Frequently asked questions',
+                faq_q_1: 'Who is Hisob for?',
+                faq_a_1: 'For shop owners, small retail points and entrepreneurs.',
+                faq_q_2: 'Do I need internet to work?',
+                faq_a_2: 'No. Core features work offline, and you can sync when connected.',
+                faq_q_3: 'Is data secure?',
+                faq_a_3: 'Yes. Data is encrypted, stored locally, and backups are available only to the owner.',
+                faq_q_4: 'Do you have POS and barcode scanning?',
+                faq_a_4: 'Yes. Sales, barcode scanning and product workflows are included.',
+                faq_q_5: 'How much does it cost?',
+                faq_a_5: 'New clients get a 14-day trial, then choose a subscription period that fits their needs.',
+                cta_eyebrow: 'Start',
+                cta_title: 'Start your accounting today',
+                cta_text: 'Download the app and keep sales, inventory and finance under control. We can fully adapt the system to your business.',
+                contact_eyebrow: 'Contacts',
+                contact_title: 'Contact us in the way that works for you',
+                contact_lead: 'Choose the best channel for your task. We reply quickly and help with launch, setup and ongoing support.',
+                contact_summary_title: 'How to get a faster reply',
+                contact_summary_note: 'Typical response time is 5–15 minutes during working hours.',
+                contact_summary_li_1: 'Telegram: the fastest channel for launch and daily workflow questions.',
+                contact_summary_li_2: 'WhatsApp: convenient for quick clarifications and team communication.',
+                contact_summary_li_3: 'Email: best for contracts, documents and detailed requests.',
+                contact_email_label: 'Email',
+                contact_email_badge: 'For documents',
+                contact_email_hint: 'Best for official requests and detailed communication.',
+                contact_email_action: 'Send an email',
+                contact_telegram_label: 'Telegram',
+                contact_telegram_badge: 'Fastest response',
+                contact_telegram_hint: 'Best channel for launch, setup and day-to-day support.',
+                contact_telegram_action: 'Open Telegram',
+                contact_whatsapp_label: 'WhatsApp',
+                contact_whatsapp_badge: 'Quick questions',
+                contact_whatsapp_hint: 'Good for fast communication by phone and chat.',
+                contact_whatsapp_action: 'Open WhatsApp',
+                footer_terms: 'Terms',
+                footer_privacy: 'Privacy',
+            },
+        };
 
-            document.querySelectorAll('[data-aos]').forEach(el => {
-                observer.observe(el);
+        const THEME_KEY = 'hisob-theme';
+        const LANG_KEY = 'hisob-lang';
+        const defaultLang = 'ru';
+
+        function applyLanguage(lang) {
+            const dict = I18N[lang] || I18N[defaultLang];
+            const htmlLangMap = { ru: 'ru', tj: 'tg', uz: 'uz', en: 'en' };
+            document.documentElement.lang = htmlLangMap[lang] || 'ru';
+
+            const langSelectEl = document.getElementById('langSelect');
+            if (langSelectEl && dict.language_label) {
+                langSelectEl.setAttribute('aria-label', dict.language_label);
+            }
+            const themeToggleEl = document.getElementById('themeToggle');
+            if (themeToggleEl && dict.theme_label) {
+                themeToggleEl.setAttribute('aria-label', dict.theme_label);
+            }
+
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.dataset.i18n;
+                if (dict[key]) el.textContent = dict[key];
             });
+
+            document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+                const key = el.dataset.i18nHtml;
+                if (dict[key]) el.innerHTML = dict[key];
+            });
+
+            if (dict.meta_title) document.title = dict.meta_title;
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && dict.meta_desc) {
+                metaDescription.setAttribute('content', dict.meta_desc);
+            }
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle && dict.meta_title) ogTitle.setAttribute('content', dict.meta_title);
+            const ogDescription = document.querySelector('meta[property="og:description"]');
+            if (ogDescription && dict.meta_desc) ogDescription.setAttribute('content', dict.meta_desc);
+            const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+            if (twitterTitle && dict.meta_title) twitterTitle.setAttribute('content', dict.meta_title);
         }
 
-        // Счетчик для цифр
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.target);
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-
-                const updateCounter = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current) + (counter.closest('.stat-card').innerText.includes('%') ? '' : '+');
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target + (counter.closest('.stat-card').innerText.includes('%') ? '' : '+');
-                    }
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    if (entries[0].isIntersecting) {
-                        updateCounter();
-                        observer.disconnect();
-                    }
-                });
-
-                observer.observe(counter);
-            });
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const toggle = document.getElementById('themeToggle');
+            if (!toggle) return;
+            toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+            const icon = toggle.querySelector('.theme-toggle__icon');
+            if (icon) icon.textContent = theme === 'dark' ? '☀' : '◐';
         }
 
-        // Плавная прокрутка для якорей
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', (event) => {
+                const href = anchor.getAttribute('href');
+                if (!href || href === '#') return;
+                const target = document.querySelector(href);
+                if (!target) return;
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+                document.querySelector('.nav')?.classList.remove('open');
             });
         });
 
-        // Инициализация
-        document.addEventListener('DOMContentLoaded', () => {
-            initAOS();
-            animateCounters();
+        document.querySelector('.nav-toggle')?.addEventListener('click', () => {
+            document.querySelector('.nav')?.classList.toggle('open');
+        });
 
-            const heroScreens = document.querySelectorAll('.hero-screen');
-            if (heroScreens.length > 1) {
-                let heroScreenIndex = 0;
+        const screens = document.querySelectorAll('.screen');
+        if (screens.length > 1) {
+            setInterval(() => {
+                const currentIndex = [...screens].findIndex((screen) => screen.classList.contains('active'));
+                screens[currentIndex].classList.remove('active');
+                screens[(currentIndex + 1) % screens.length].classList.add('active');
+            }, 3200);
+        }
 
-                setInterval(() => {
-                    heroScreens[heroScreenIndex].classList.remove('is-active');
-                    heroScreenIndex = (heroScreenIndex + 1) % heroScreens.length;
-                    heroScreens[heroScreenIndex].classList.add('is-active');
-                }, 2000);
-            }
+        const solutionTabs = document.querySelectorAll('.solution-chip');
+        const solutionPanels = document.querySelectorAll('.solution-panel');
+        solutionTabs.forEach((tab) => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.solutionTarget;
+                solutionTabs.forEach((item) => {
+                    item.classList.remove('is-active');
+                    item.setAttribute('aria-selected', 'false');
+                });
+                solutionPanels.forEach((panel) => {
+                    const match = panel.dataset.solutionPanel === target;
+                    panel.classList.toggle('is-active', match);
+                    panel.hidden = !match;
+                });
+                tab.classList.add('is-active');
+                tab.setAttribute('aria-selected', 'true');
+            });
+        });
+
+        const langSelect = document.getElementById('langSelect');
+        const savedLang = localStorage.getItem(LANG_KEY);
+        const initialLang = savedLang && I18N[savedLang] ? savedLang : defaultLang;
+        if (langSelect) {
+            langSelect.value = initialLang;
+            langSelect.addEventListener('change', () => {
+                const selected = langSelect.value;
+                applyLanguage(selected);
+                localStorage.setItem(LANG_KEY, selected);
+            });
+        }
+        applyLanguage(initialLang);
+
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let activeTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        if (activeTheme !== 'dark' && activeTheme !== 'light') activeTheme = 'light';
+        applyTheme(activeTheme);
+
+        themeToggle?.addEventListener('click', () => {
+            activeTheme = activeTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(activeTheme);
+            localStorage.setItem(THEME_KEY, activeTheme);
         });
     </script>
 </body>

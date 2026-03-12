@@ -1,6 +1,6 @@
-# Shoga Website
+# Hisob Website
 
-Официальный лендинг для приложения Shoga — профессиональное решение для управления финансами и бизнесом.
+Официальный лендинг для приложения Hisob — профессиональное решение для управления финансами и бизнесом.
 
 ## 📁 Структура проекта
 
@@ -15,12 +15,11 @@ website/
 
 ## 🎨 Дизайн
 
-Сайт выполнен в профессиональном стиле финансовых стартапов:
-- Минималистичный дизайн
-- Темная цветовая схема (#0F172A)
-- Плавные анимации и переходы
+Сайт выполнен в премиальном стиле:
+- Минималистичный и элегантный дизайн
+- Цветовая схема: зелёный акцент (#2C5F4F) на светлом фоне
+- Шрифты Manrope + Playfair Display
 - Адаптивная верстка для всех устройств
-- Современная типографика
 
 ## 🚀 Запуск
 
@@ -68,7 +67,7 @@ website/
 </a>
 
 <!-- Google Play -->
-<a href="https://play.google.com/store/apps/details?id=com.yourapp.shoga">
+<a href="https://play.google.com/store/apps/details?id=com.yourapp.hisob">
     Google Play
 </a>
 ```
@@ -94,13 +93,20 @@ website/
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 ```
 
-### 4. SEO метатеги
+### 4. Обновите домен для SEO
 
-В `index.html` обновите метатеги:
+Если у вас свой домен, замените `hisob.tj` в файлах:
+- `index.html` — og:url, canonical
+- `sitemap.xml` — все URL
+- `robots.txt` — Sitemap URL
+
+### 5. SEO метатеги
+
+В `index.html` уже настроены: meta description, keywords, Open Graph, Twitter Card, JSON-LD. При необходимости обновите:
 
 ```html
 <meta name="description" content="Ваше описание">
-<meta property="og:title" content="Shoga">
+<meta property="og:title" content="Hisob">
 <meta property="og:description" content="Ваше описание">
 <meta property="og:image" content="https://yoursite.com/og-image.jpg">
 ```
@@ -149,8 +155,8 @@ website/
 ## 📞 Поддержка
 
 При возникновении вопросов:
-- Email: support@shoga.app
-- Telegram: @shoga_support
+- Email: support@hisob.tj
+- Telegram: @hisob_support
 
 ---
 

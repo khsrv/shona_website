@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hisob.tj/sitemap.xml
