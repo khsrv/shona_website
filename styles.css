@@ -101,6 +101,31 @@ a {
     border: 0;
 }
 
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.65s ease, transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.reveal-soft {
+    transform: translateY(12px);
+}
+
+.reveal.reveal-scale {
+    transform: translateY(10px) scale(0.985);
+}
+
+.reveal.reveal-scale.is-visible {
+    transform: translateY(0) scale(1);
+}
+
 .section {
     padding: 72px 0;
 }
@@ -392,12 +417,29 @@ section[id] {
     justify-content: center;
     flex-direction: column;
     gap: 5px;
+    position: relative;
+    z-index: 40;
+    cursor: pointer;
 }
 
 .nav-toggle span {
     width: 18px;
     height: 2px;
     background: var(--text);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform-origin: center;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .hero {
@@ -452,20 +494,37 @@ section[id] {
 
 .hero-screens {
     width: min(360px, 100%);
-    overflow: visible;
+    aspect-ratio: 260 / 540;
+    position: relative;
+    overflow: hidden;
     border: 0;
     box-shadow: none;
     background: transparent;
 }
 
 .screen {
-    display: none;
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transform: translateX(20px) scale(0.99);
+    transition: opacity 0.55s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+    pointer-events: none;
 }
 
 .screen.active {
-    display: block;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .screen {
+        transition: none;
+    }
 }
 
 .hero-metric {
@@ -528,6 +587,12 @@ section[id] {
     border-radius: var(--radius-md);
     padding: 18px 18px;
     box-shadow: var(--shadow-soft);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.proof-grid article:hover {
+    transform: translateY(-2px);
+    border-color: rgba(31, 53, 85, 0.24);
 }
 
 .proof-grid h2 {
@@ -555,6 +620,12 @@ section[id] {
     border-radius: var(--radius-md);
     padding: 14px;
     box-shadow: var(--shadow-soft);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(31, 53, 85, 0.24);
 }
 
 .feature-media {
@@ -578,6 +649,11 @@ section[id] {
     width: auto;
     max-width: 100%;
     object-fit: contain;
+    transition: transform 0.5s ease;
+}
+
+.feature-card:hover .feature-media img {
+    transform: scale(1.02);
 }
 
 .feature-card h3 {
@@ -620,6 +696,12 @@ section[id] {
     border-radius: var(--radius-sm);
     padding: 14px 16px;
     color: var(--text);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.trust-list li:hover {
+    transform: translateY(-1px);
+    border-color: rgba(31, 53, 85, 0.24);
 }
 
 .trust-panel {
@@ -716,6 +798,7 @@ section[id] {
     background: #eaf0fb;
     border-color: rgba(31, 53, 85, 0.22);
     color: #16263f;
+    box-shadow: 0 8px 20px rgba(31, 53, 85, 0.12);
 }
 
 :root[data-theme="dark"] .solution-chip {
@@ -746,6 +829,18 @@ section[id] {
 
 .solution-panel.is-active {
     display: block;
+    animation: panel-fade-in 0.35s ease;
+}
+
+@keyframes panel-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .solution-panel h3 {
@@ -797,6 +892,11 @@ section[id] {
 .faq-item {
     padding: 18px 22px;
     border-bottom: 1px solid var(--line);
+    transition: background-color 0.2s ease;
+}
+
+.faq-item:hover {
+    background: rgba(31, 53, 85, 0.03);
 }
 
 .faq-item:last-child {
@@ -1110,6 +1210,16 @@ section[id] {
     color: #e8edf6;
 }
 
+:root[data-theme="dark"] .proof-grid article:hover,
+:root[data-theme="dark"] .feature-card:hover,
+:root[data-theme="dark"] .trust-list li:hover {
+    border-color: rgba(143, 181, 255, 0.34);
+}
+
+:root[data-theme="dark"] .faq-item:hover {
+    background: rgba(143, 181, 255, 0.08);
+}
+
 .copy {
     margin-left: auto;
 }
@@ -1244,6 +1354,7 @@ section[id] {
     .header-inner {
         min-height: 64px;
         gap: 14px;
+        position: relative;
     }
 
     .logo {
@@ -1302,24 +1413,34 @@ section[id] {
     }
 
     .nav {
-        position: fixed;
-        top: calc(64px + env(safe-area-inset-top));
+        position: absolute;
+        top: calc(100% + 8px);
         left: 0;
         right: 0;
         display: grid;
         gap: 0;
         background: rgba(255, 255, 255, 0.98);
-        border-bottom: 1px solid var(--line);
-        transform: translateY(-110%);
-        transition: transform 0.2s ease;
-        pointer-events: none;
-        max-height: calc(100dvh - 64px - env(safe-area-inset-top));
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        box-shadow: 0 16px 34px rgba(16, 24, 40, 0.15);
+        max-height: min(70dvh, 420px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        pointer-events: none;
+        z-index: 30;
     }
 
     :root[data-theme="dark"] .nav {
         background: rgba(11, 20, 33, 0.98);
+        border-color: rgba(143, 181, 255, 0.28);
+    }
+
+    :root[data-theme="dark"] .nav a {
+        border-top-color: rgba(143, 181, 255, 0.18);
     }
 
     .nav a {
@@ -1327,7 +1448,13 @@ section[id] {
         border-top: 1px solid rgba(31, 53, 85, 0.08);
     }
 
+    .nav a:first-child {
+        border-top: 0;
+    }
+
     .nav.open {
+        visibility: visible;
+        opacity: 1;
         transform: translateY(0);
         pointer-events: auto;
     }
@@ -1587,5 +1714,18 @@ section[id] {
     .solution-tags span {
         font-size: 12px;
         padding: 6px 9px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
