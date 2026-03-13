@@ -494,7 +494,7 @@ section[id] {
 
 .hero-screens {
     width: min(360px, 100%);
-    aspect-ratio: 260 / 540;
+    aspect-ratio: 1 / 1;
     position: relative;
     overflow: hidden;
     border: 0;
