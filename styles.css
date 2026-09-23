@@ -894,3 +894,20 @@ button { font: inherit; }
 }
 .fp-img.fp-chat { background: var(--ground); padding: 18px 18px 0; aspect-ratio: auto; }
 .fp-img.fp-chat .ai-chat { max-width: 640px; margin: 0 auto; border-radius: 18px 18px 0 0; box-shadow: none; border-bottom: 0; }
+
+/* ---- возможности: вкладки-разделы сверху, под шапкой ---- */
+.fp-nav { position: sticky; top: 76px; bottom: auto; z-index: 30; display: block; padding: 0; margin: 0 0 8px; pointer-events: auto; background: rgba(246,245,242,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); }
+.fp-nav > .wrap { pointer-events: auto; display: block; background: none; border: 0; border-radius: 0; box-shadow: none; padding: 0 20px; }
+.fp-tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.fp-tabs::-webkit-scrollbar { display: none; }
+.fp-nav a { border-radius: 0; padding: 15px 14px 13px; border-bottom: 2px solid transparent; font-size: 14px; }
+.fp-nav a:hover { background: none; color: var(--ink); }
+.fp-nav a.on { background: none; color: var(--ink); border-bottom-color: var(--amber); }
+@media (max-width: 820px) { .fp-nav { top: 76px; } .fp-nav a { padding: 13px 12px 11px; font-size: 13.5px; } }
+/* лента: надёжная раскладка без flex (Safari) */
+@media (max-width: 820px) {
+  .hero-collage .hero-strip { display: block; overflow: hidden; white-space: nowrap; }
+  .hero-strip .hero-track { display: inline-block; width: auto; white-space: nowrap; }
+  .hero-strip .hero-group { display: inline-block; white-space: nowrap; font-size: 0; line-height: 0; padding: 0; }
+  .hero-strip .hero-group .ptile { display: inline-block; vertical-align: top; width: 164px; min-height: 0; height: 104px; margin: 0 10px 0 0; white-space: normal; line-height: 1.2; }
+}
