@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=e5c9be3c">
+<link rel="stylesheet" href="./styles.css?v=8c61349b">
 </head>
 <body>
 <header class="header" id="header">
@@ -46,7 +46,7 @@
         </div>
       </div>
       <a href="./vozmozhnosti/">Возможности</a>
-      <a href="./#pomoshnik">ИИ-помощник</a>
+      <a href="./vozmozhnosti/#pomoshnik">ИИ-помощник</a>
       <a href="./#tarify">Тарифы</a>
     </nav>
     <div class="header-cta">
@@ -126,7 +126,7 @@
 })();
 (function(){
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .price-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
+  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .price-card, .cta-photo, .faq-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
   if(!('IntersectionObserver' in window)||rm){return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px',threshold:0.08});
   Array.prototype.forEach.call(els,function(el){var i=0,p=el.parentNode,c=el;while((c=c.previousElementSibling)&&i<5)i++;el.style.transitionDelay=(i*70)+'ms';el.classList.add('reveal');io.observe(el);});
@@ -186,6 +186,22 @@
   tabs.addEventListener('click',function(e){var t=e.target.closest('.tab');if(!t)return;var i=+t.dataset.i;if(i===cur)return;cur=i;
     Array.prototype.forEach.call(tabs.children,function(c){c.classList.toggle('active',c===t);});
     fade(D,S[i].d);fade(M,S[i].m);C.textContent=S[i].c;U.textContent='hisob.app / '+S[i].u;});
+})();
+</script>
+<script>
+(function(){
+  var links=document.querySelectorAll('[data-video]'); if(!links.length) return;
+  var box=null, last=null;
+  function close(){ if(!box) return; box.remove(); box=null; document.documentElement.style.overflow=''; if(last) last.focus(); }
+  function open(id){
+    box=document.createElement('div'); box.className='vmodal'; box.setAttribute('role','dialog'); box.setAttribute('aria-modal','true'); box.setAttribute('aria-label','Видеообзор Hisob POS');
+    box.innerHTML='<div class="vmodal-in"><button class="vmodal-x" type="button" aria-label="Закрыть">&times;</button><div class="vmodal-frame"><iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1" title="Видеообзор Hisob POS" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>';
+    document.body.appendChild(box); document.documentElement.style.overflow='hidden';
+    box.addEventListener('click',function(e){ if(e.target===box||e.target.classList.contains('vmodal-x')) close(); });
+    box.querySelector('.vmodal-x').focus();
+  }
+  Array.prototype.forEach.call(links,function(a){ a.addEventListener('click',function(e){ if(e.metaKey||e.ctrlKey||e.shiftKey) return; e.preventDefault(); last=a; open(a.getAttribute('data-video')); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
 })();
 </script>
 </body>
