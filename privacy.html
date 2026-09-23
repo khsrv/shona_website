@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=be5423ad">
+<link rel="stylesheet" href="./styles.css?v=e5c9be3c">
 </head>
 <body>
 <header class="header" id="header">
@@ -47,7 +47,6 @@
       </div>
       <a href="./vozmozhnosti/">Возможности</a>
       <a href="./#pomoshnik">ИИ-помощник</a>
-      <a href="./#zapusk">Запуск</a>
       <a href="./#tarify">Тарифы</a>
     </nav>
     <div class="header-cta">
@@ -127,7 +126,7 @@
 })();
 (function(){
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
+  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .price-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
   if(!('IntersectionObserver' in window)||rm){return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px',threshold:0.08});
   Array.prototype.forEach.call(els,function(el){var i=0,p=el.parentNode,c=el;while((c=c.previousElementSibling)&&i<5)i++;el.style.transitionDelay=(i*70)+'ms';el.classList.add('reveal');io.observe(el);});

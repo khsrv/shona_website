@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=be5423ad">
+<link rel="stylesheet" href="../styles.css?v=e5c9be3c">
 </head>
 <body>
 <header class="header" id="header">
@@ -47,7 +47,6 @@
       </div>
       <a href="../vozmozhnosti/">Возможности</a>
       <a href="../#pomoshnik">ИИ-помощник</a>
-      <a href="../#zapusk">Запуск</a>
       <a href="../#tarify">Тарифы</a>
     </nav>
     <div class="header-cta">
@@ -102,11 +101,14 @@
 </div></section>
 <section class="section"><div class="wrap">
   <div class="cta">
-    <div><h2 class="h2">Покажем на ваших товарах</h2><p>Встреча — 30 минут, без обязательств. Заведём ваши позиции и одну бригаду с долгом.</p></div>
+    <div class="cta-text"><h2 class="h2">Покажем на ваших товарах</h2><p>Встреча — 30 минут, без обязательств. Заведём ваши позиции и одну бригаду с долгом.</p></div>
     <div class="cta-actions">
       <a class="btn btn-wa" href="https://wa.me/992712056006?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A3%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%20%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D0%BE%D0%B2.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D1%81%D0%BC%D0%BE%D1%82%D1%80%D0%B5%D1%82%D1%8C%20Hisob%20POS." target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.6A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 10a4 4 0 0 0 5 5"/></svg> Написать в WhatsApp</a>
-      <a class="btn btn-outline-light" href="https://t.me/hisobapp" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l10-8"/></svg> Написать в Telegram</a>
-      <a class="btn btn-outline-light" href="tel:+992712056006">Позвонить · +992 712 056 006</a>
+      <div class="cta-row">
+        <a class="btn btn-ghost" href="https://t.me/hisobapp" target="_blank" rel="noopener"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 4L3 11l6 2 2 6 3-4 5 4z"/><path d="M9 13l10-8"/></svg> Telegram</a>
+        <a class="btn btn-ghost" href="tel:+992712056006"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> Позвонить</a>
+      </div>
+      <small>+992 712 056 006 · ответим в тот же день</small>
       
     </div>
   </div>
@@ -166,7 +168,7 @@
 })();
 (function(){
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
+  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .price-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
   if(!('IntersectionObserver' in window)||rm){return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px',threshold:0.08});
   Array.prototype.forEach.call(els,function(el){var i=0,p=el.parentNode,c=el;while((c=c.previousElementSibling)&&i<5)i++;el.style.transitionDelay=(i*70)+'ms';el.classList.add('reveal');io.observe(el);});
