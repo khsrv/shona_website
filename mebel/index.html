@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=b931abfd">
+<link rel="stylesheet" href="../styles.css?v=be5423ad">
 </head>
 <body>
 <header class="header" id="header">
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-      <a href="../#vozmozhnosti">Возможности</a>
+      <a href="../vozmozhnosti/">Возможности</a>
       <a href="../#pomoshnik">ИИ-помощник</a>
       <a href="../#zapusk">Запуск</a>
       <a href="../#tarify">Тарифы</a>
@@ -223,32 +223,57 @@
 })();
 (function(){
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .shot, .ai-msg, .ai-point');
+  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
   if(!('IntersectionObserver' in window)||rm){return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px',threshold:0.08});
   Array.prototype.forEach.call(els,function(el){var i=0,p=el.parentNode,c=el;while((c=c.previousElementSibling)&&i<5)i++;el.style.transitionDelay=(i*70)+'ms';el.classList.add('reveal');io.observe(el);});
 })();
 (function(){
-  var d=document.getElementById('rotData'),slots=document.querySelectorAll('.ptile.rot');
-  if(!d||!slots.length)return;
+  var d=document.getElementById('rotData'),slots=Array.prototype.slice.call(document.querySelectorAll('.ptile.rot'));
+  if(!d)return;
   if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var all=JSON.parse(d.textContent),shown=[],hidden=[];
-  Array.prototype.forEach.call(slots,function(s){var t=s.querySelector('b').textContent;var it=null;all.forEach(function(x){if(x.t===t)it=x;});shown.push(it);});
-  all.forEach(function(x){if(shown.indexOf(x)<0)hidden.push(x);});
-  if(!hidden.length)return;
-  hidden.forEach(function(x){var im=new Image();im.src=x.img;});
-  var paused=false,collage=document.querySelector('.hero-collage'),k=0;
+  var data=JSON.parse(d.textContent),all=data.rot,paused=false,collage=document.querySelector('.hero-collage');
   collage.addEventListener('mouseenter',function(){paused=true;});collage.addEventListener('mouseleave',function(){paused=false;});
-  function swap(){
-    if(paused||document.hidden)return;
-    var i=k;k=(k+1>=slots.length)?0:k+1;var slot=slots[i],next=hidden.shift();if(!next)return;
-    var old=slot.querySelector('img'),im=document.createElement('img');im.src=next.img;im.alt='';im.style.opacity='0';
-    slot.insertBefore(im,old.nextSibling);
-    var lab=slot.querySelector('.ptile-label');
-    requestAnimationFrame(function(){requestAnimationFrame(function(){im.style.opacity='1';lab.classList.add('fade');setTimeout(function(){lab.querySelector('b').textContent=next.t;var sm=lab.querySelector('small');if(sm)sm.textContent=next.s;slot.href=next.href;if(next.href.indexOf('http')===0){slot.target='_blank';}else{slot.removeAttribute('target');slot.removeAttribute('rel');}lab.classList.remove('fade');},300);setTimeout(function(){if(old.parentNode)old.parentNode.removeChild(old);},800);});});
-    hidden.push(shown[i]);shown[i]=next;
+  function preload(list){list.forEach(function(x){var im=new Image();im.src=x.img;});}
+  function show(slot,img,t,s,href,fail){
+    var old=slot.querySelector('img'),im=document.createElement('img');im.alt='';im.style.opacity='0';
+    im.onload=function(){
+      slot.insertBefore(im,old.nextSibling);
+      var lab=slot.querySelector('.ptile-label');
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        im.style.opacity='1';lab.classList.add('fade');
+        setTimeout(function(){if(t)lab.querySelector('b').textContent=t;var sm=lab.querySelector('small');if(sm&&s!=null)sm.textContent=s;
+          if(href){slot.href=href;slot.removeAttribute('target');}lab.classList.remove('fade');},300);
+        setTimeout(function(){if(old.parentNode)old.parentNode.removeChild(old);},800);
+      });});
+    };
+    im.onerror=function(){if(fail)fail();};
+    im.src=img;
   }
-  setInterval(swap,4500);
+  /* маленькие карточки: каждая меняется сама по себе */
+  var shown=slots.map(function(s){var t=s.querySelector('b').textContent,it=null;all.forEach(function(x){if(x.t===t)it=x;});return it;});
+  var hidden=all.filter(function(x){return shown.indexOf(x)<0;});
+  preload(hidden);
+  slots.forEach(function(slot,i){
+    function tick(){
+      if(!paused&&!document.hidden&&hidden.length){
+        var n=Math.floor(Math.random()*hidden.length),next=hidden.splice(n,1)[0];
+        var prev=shown[i];hidden.push(prev);shown[i]=next;show(slot,next.img,next.t,next.s,next.href,function(){shown[i]=prev;hidden.splice(hidden.indexOf(prev),1);});
+      }
+      setTimeout(tick,4500+Math.random()*3000);
+    }
+    setTimeout(tick,1200+i*700+Math.random()*900);
+  });
+  /* большие карточки: одна отрасль, разные ниши */
+  document.querySelectorAll('.ptile[data-cycle]').forEach(function(slot,j){
+    var list=data.cycle[slot.getAttribute('data-cycle')];if(!list||list.length<2)return;
+    preload(list);var k=0;
+    function tick(){
+      if(!paused&&!document.hidden&&list.length>1){k=(k+1)%list.length;var kk=k;show(slot,list[kk].img,null,list[kk].s,null,function(){list.splice(kk,1);k=kk-1;});}
+      setTimeout(tick,6000);
+    }
+    setTimeout(tick,2500+j*2100);
+  });
 })();
 (function(){
   var d=document.getElementById('scrData'),tabs=document.getElementById('scrTabs');if(!d||!tabs)return;
