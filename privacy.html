@@ -1,182 +1,168 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <script>
-        try {
-            const savedTheme = localStorage.getItem('hisob-theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-            }
-        } catch (_) {}
-    </script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Политика конфиденциальности — Hisob</title>
-    <meta name="description" content="Политика конфиденциальности приложения Hisob.">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/app_icon.png">
-    <link rel="apple-touch-icon" href="images/app_icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="legacy.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Политика конфиденциальности — Hisob POS</title>
+<meta name="description" content="Какие данные получает Hisob POS, зачем, кто их видит и как их выгрузить или удалить.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hisob.app/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hisob.app/privacy.html">
+<meta property="og:title" content="Политика конфиденциальности — Hisob POS">
+<meta property="og:description" content="Какие данные получает Hisob POS, зачем, кто их видит и как их выгрузить или удалить.">
+<meta property="og:image" content="https://hisob.app/images/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="./images/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+<link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
+<link rel="manifest" href="./site.webmanifest">
+<meta name="theme-color" content="#F6F5F2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header class="header">
-        <div class="wrap header-inner">
-            <a href="index.html" class="logo">
-                <img src="images/app_icon.png" alt="Логотип Hisob" width="36" height="36" loading="eager">
-                <span>Hisob</span>
-            </a>
-            <nav class="nav" aria-label="Навигация">
-                <a href="index.html">Главная</a>
-            </nav>
-            <div class="header-tools">
-                <button class="theme-toggle" id="themeToggleLegal" type="button" aria-label="Переключить тему">
-                    <span class="theme-toggle__icon" aria-hidden="true">◐</span>
-                    <span class="theme-toggle__label">Тема</span>
-                </button>
-            </div>
-            <a href="index.html#download" class="btn btn-sm header-cta">Скачать</a>
-            <button class="nav-toggle" aria-label="Открыть меню">
-                <span></span><span></span><span></span>
-            </button>
+<header class="header" id="header">
+  <div class="wrap header-inner">
+    <a href="./" class="logo"><span class="logo-mark"><svg viewBox="0 0 512 512" fill="#FFFFFF" aria-hidden="true"><rect x="97" y="88" width="71" height="324" rx="35"/><rect x="344" y="88" width="71" height="324" rx="35"/><rect x="243" y="204" width="101" height="46" rx="23"/><rect x="168" y="262" width="104" height="46" rx="23"/></svg></span><span>Hisob <small>POS</small></span></a>
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <div class="has-menu">
+        <a href="./#otrasli" class="menu-toggle" aria-haspopup="true">Ваш бизнес <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <div class="menu" role="menu">
+          <div class="menu-grid">
+<a class="menu-item" href="./mebel/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4.5v9l-8 4.5-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></span><span><b>Мебельный цех</b><small>Базис, техкарта, выпуск, наряды</small></span></a>
+<a class="menu-item" href="./proizvodstvo/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V9l6-4 6 4v11M10 20v-5h4v5"/></svg></span><span><b>Производство</b><small>Пекарня, швейный цех, любой цех</small></span></a>
+<a class="menu-item" href="./apteka/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-45 12 12)"/><path d="M9 9l6 6"/></svg></span><span><b>Аптека</b><small>Сроки, аналоги, дефектура</small></span></a>
+<a class="menu-item" href="./opt/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16V6h11v10M14 9h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><span><b>Сухофрукты и опт</b><small>Партии, валюта, прибыль машины</small></span></a>
+<a class="menu-item" href="./zerkala/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7l-2 4M14 7l-5 9"/></svg></span><span><b>Зеркальный цех</b><small>Раскрой, работы, отход</small></span></a>
+<a class="menu-item" href="./telefony/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></span><span><b>Магазин телефонов</b><small>IMEI, гарантия, резерв</small></span></a>
+<a class="menu-item" href="./mebel-magazin/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><rect x="2" y="12" width="20" height="6" rx="2"/><path d="M5 18v2M19 18v2"/></svg></span><span><b>Мебельный магазин</b><small>Комплекты и предметы</small></span></a>
+<a class="menu-item" href="./materialy/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 12h18M12 4v16"/></svg></span><span><b>Мебельные материалы</b><small>ЛДСП, кромка, фурнитура</small></span></a>
+<a class="menu-item" href="./magazin/"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v10h16V10"/><path d="M3 10l2-6h14l2 6z"/><path d="M9 20v-5h6v5"/></svg></span><span><b>Магазин и стройматериалы</b><small>Касса, склад, долги, прибыль</small></span></a>
+          <a class="menu-item menu-other" href="https://wa.me/992712056006?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D0%B8%D1%82%20%D0%BB%D0%B8%20Hisob%20POS%20%D0%B4%D0%BB%D1%8F%20%D0%BC%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0%3A%20___" target="_blank" rel="noopener"><span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span><b>Другое направление</b><small>Напишите — подскажем, подходит ли</small></span></a>
+          </div>
         </div>
-    </header>
-
-    <main class="legal-shell">
-        <div class="wrap">
-            <article class="legal-page">
-                <h1>Политика конфиденциальности</h1>
-                <p class="date">Последнее обновление: 2 марта 2026 г.</p>
-
-                <h2>1. Введение</h2>
-                <p>Настоящая Политика конфиденциальности описывает, как приложение Hisob ("мы", "наше приложение") собирает, использует и защищает вашу личную информацию.</p>
-                <p>Используя наше приложение, вы соглашаетесь с условиями настоящей Политики конфиденциальности.</p>
-
-                <h2>2. Сбор информации</h2>
-                <p>Наше приложение собирает следующие типы информации:</p>
-                <ul>
-                    <li><strong>Учетная информация:</strong> адрес электронной почты, имя пользователя при регистрации через Firebase Authentication</li>
-                    <li><strong>Финансовые данные:</strong> информация о доходах, расходах, долгах (хранится локально на вашем устройстве)</li>
-                    <li><strong>Данные о товарах:</strong> информация о товарах, остатках, продажах (хранится локально)</li>
-                    <li><strong>Технические данные:</strong> информация об устройстве, версия приложения для обеспечения работы приложения</li>
-                </ul>
-
-                <h2>3. Использование информации</h2>
-                <p>Мы используем собранную информацию для:</p>
-                <ul>
-                    <li>Предоставления и улучшения функциональности приложения</li>
-                    <li>Обеспечения работы учетной записи пользователя</li>
-                    <li>Синхронизации данных между устройствами (при наличии подписки)</li>
-                    <li>Отправки уведомлений о важных обновлениях</li>
-                    <li>Обеспечения технической поддержки</li>
-                </ul>
-
-                <h2>4. Хранение данных</h2>
-                <p><strong>Локальное хранение:</strong> Все ваши финансовые данные, информация о товарах, долгах и задачах хранятся локально на вашем устройстве в зашифрованном виде.</p>
-                <p><strong>Облачное хранение:</strong> При использовании функции резервного копирования через Telegram, зашифрованные копии ваших данных сохраняются в вашем личном Telegram-боте. Мы не имеем доступа к этим данным.</p>
-                <p><strong>Firebase:</strong> Информация о подписках и учетных записях хранится в защищенной базе данных Firebase с использованием современных методов шифрования.</p>
-
-                <h2>5. Защита данных</h2>
-                <p>Мы применяем следующие меры безопасности:</p>
-                <ul>
-                    <li>Шифрование всех локальных данных с использованием AES-256</li>
-                    <li>Защищенное соединение при синхронизации данных (HTTPS/TLS)</li>
-                    <li>Аутентификация через Firebase Authentication</li>
-                    <li>Регулярные обновления безопасности</li>
-                    <li>Двухфакторная аутентификация (при включении)</li>
-                </ul>
-
-                <h2>6. Передача данных третьим лицам</h2>
-                <p>Мы <strong>не продаем</strong> и <strong>не передаем</strong> ваши личные данные третьим лицам для маркетинговых целей.</p>
-                <p>Данные могут быть переданы только:</p>
-                <ul>
-                    <li>С вашего явного согласия</li>
-                    <li>По требованию правоохранительных органов при наличии законного запроса</li>
-                    <li>Сервисным партнерам (Firebase, Telegram) для обеспечения работы приложения</li>
-                </ul>
-
-                <h2>7. Файлы cookie и отслеживание</h2>
-                <p>Наше приложение не использует файлы cookie для отслеживания вашей активности. Мы собираем минимально необходимую техническую информацию для обеспечения работы приложения.</p>
-
-                <h2>8. Права пользователей</h2>
-                <p>Вы имеете право:</p>
-                <ul>
-                    <li>Получить доступ к вашим личным данным</li>
-                    <li>Исправить неточные данные</li>
-                    <li>Удалить вашу учетную запись и все связанные данные</li>
-                    <li>Экспортировать ваши данные в стандартном формате</li>
-                    <li>Отозвать согласие на обработку данных</li>
-                </ul>
-                <p>Для реализации ваших прав свяжитесь с нами по адресу: <a href="mailto:support@shoga.app">support@shoga.app</a></p>
-
-                <h2>9. Данные несовершеннолетних</h2>
-                <p>Наше приложение не предназначено для лиц младше 16 лет. Мы сознательно не собираем личную информацию от несовершеннолетних. Если вы обнаружили, что несовершеннолетний предоставил нам личные данные, свяжитесь с нами для удаления этой информации.</p>
-
-                <h2>10. Международная передача данных</h2>
-                <p>Ваши данные могут обрабатываться на серверах, расположенных в разных странах. Мы обеспечиваем адекватный уровень защиты данных при международной передаче в соответствии с применимым законодательством.</p>
-
-                <h2>11. Изменения в Политике</h2>
-                <p>Мы можем периодически обновлять настоящую Политику конфиденциальности. О существенных изменениях мы уведомим вас через приложение или по электронной почте. Дата последнего обновления указана в начале документа.</p>
-
-                <h2>12. Контактная информация</h2>
-                <p>Если у вас есть вопросы о настоящей Политике конфиденциальности, свяжитесь с нами:</p>
-                <ul>
-                    <li>Email: <a href="mailto:yakubiabduqahhor@gmail.com">yakubiabduqahhor@gmail.com</a></li>
-                    <li>Telegram: <a href="https://t.me/shogasupport">@shogasupport</a></li>
-                    <li>WhatsApp: <a href="https://wa.me/79961255676">+7 996 125 56 76</a></li>
-                </ul>
-
-                <h2>13. Согласие</h2>
-                <p>Используя наше приложение, вы подтверждаете, что прочитали и поняли настоящую Политику конфиденциальности и соглашаетесь с ее условиями.</p>
-
-                <p class="legal-back"><a href="index.html">← Вернуться на главную</a></p>
-            </article>
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="wrap footer-inner">
-            <span class="footer-brand">
-                <img src="images/app_icon.png" alt="Логотип Hisob" width="28" height="28" loading="lazy">
-                <span>Hisob</span>
-            </span>
-            <a href="terms.html">Условия</a>
-            <a href="privacy.html">Политика</a>
-            <span class="copy">&copy; 2026</span>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelector('.nav-toggle')?.addEventListener('click', () => {
-            document.querySelector('.nav')?.classList.toggle('open');
-        });
-
-        const THEME_KEY = 'hisob-theme';
-        const themeToggle = document.getElementById('themeToggleLegal');
-        let activeTheme = document.documentElement.getAttribute('data-theme');
-        if (!activeTheme) {
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            activeTheme = prefersDark ? 'dark' : 'light';
-        }
-        if (activeTheme !== 'dark' && activeTheme !== 'light') activeTheme = 'light';
-
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            if (themeToggle) {
-                themeToggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
-                const icon = themeToggle.querySelector('.theme-toggle__icon');
-                if (icon) icon.textContent = theme === 'dark' ? '☀' : '◐';
-            }
-        }
-
-        applyTheme(activeTheme);
-        themeToggle?.addEventListener('click', () => {
-            activeTheme = activeTheme === 'dark' ? 'light' : 'dark';
-            applyTheme(activeTheme);
-            localStorage.setItem(THEME_KEY, activeTheme);
-        });
-    </script>
+      </div>
+      <a href="./#vozmozhnosti">Возможности</a>
+      <a href="./#pomoshnik">ИИ-помощник</a>
+      <a href="./#zapusk">Запуск</a>
+      <a href="./#tarify">Тарифы</a>
+    </nav>
+    <div class="header-cta">
+      <a class="header-phone" href="tel:+992712056006"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg> <span>+992 712 056 006</span></a>
+      <a class="btn btn-wa btn-sm" href="https://wa.me/992712056006?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%20Hisob%20POS." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.6A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 10a4 4 0 0 0 5 5"/></svg> Написать в WhatsApp</a>
+    </div>
+    <a class="header-wa" href="https://wa.me/992712056006?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%20Hisob%20POS." target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.6A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 10a4 4 0 0 0 5 5"/></svg></a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<section class="legal-hero"><div class="wrap">
+  <span class="eyebrow">Документы</span>
+  <h1 class="h1">Политика конфиденциальности</h1>
+  <p class="legal-date">Обновлено 23 сентября 2026 · Hisob POS и сайт hisob.app</p>
+  <nav class="legal-tabs" aria-label="Документы"><a href="privacy.html" class="active">Политика конфиденциальности</a><a href="terms.html">Условия использования</a></nav>
+</div></section>
+<section class="legal-body"><div class="wrap legal-grid">
+  <aside class="legal-toc"><b>Содержание</b><ol><li><a href="#s1">О чём этот документ</a></li><li><a href="#s2">Какие данные мы получаем</a></li><li><a href="#s3">Аптеки</a></li><li><a href="#s4">Зачем мы используем данные</a></li><li><a href="#s5">Кто видит ваши данные</a></li><li><a href="#s6">Сторонние сервисы</a></li><li><a href="#s7">Сайт hisob.app</a></li><li><a href="#s8">Как мы защищаем данные</a></li><li><a href="#s9">Сколько храним и как удалить</a></li><li><a href="#s10">Ваши права</a></li><li><a href="#s11">Данные ваших сотрудников и клиентов</a></li><li><a href="#s12">Изменения</a></li><li><a href="#s13">Контакты</a></li></ol></aside>
+  <article class="legal-text">
+    <div class="legal-short"><h2>Коротко</h2><ul class="checklist"><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Данные вашего бизнеса принадлежат вам. Мы их не продаём и не показываем посторонним.</span></li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Данные хранятся на сервере — поэтому на компьютере и в телефоне одни и те же цифры.</span></li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>Внутри компании каждый сотрудник видит только то, что разрешили вы.</span></li><li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg><span>По вашей просьбе выгрузим данные и удалим их.</span></li></ul></div>
+    <section id="s1"><h2><span>1</span>О чём этот документ</h2><p>Hisob — IT-компания из Душанбе. Мы делаем программу учёта Hisob POS для магазинов, аптек, оптовой торговли и производств.</p><p>Здесь написано, какие данные мы получаем, когда вы пользуетесь Hisob POS и сайтом hisob.app, зачем они нужны и что вы можете с ними сделать. У Hisob Education и Hisob Cargo — свои документы.</p></section><section id="s2"><h2><span>2</span>Какие данные мы получаем</h2><p><b>Учётная запись.</b> Имя, телефон или эл. почта, название бизнеса и точек.</p><p><b>Данные бизнеса — то, что вносите вы.</b></p><ul><li>товары, остатки, партии, сроки годности, цены и себестоимость;</li><li>продажи, возвраты, закупки, накладные, расходы, курсы валют;</li><li>долги клиентов и долги поставщикам, графики платежей;</li><li>для производства — техкарты, выпуски, наряды, файлы Базис-Мебельщика;</li><li>для отраслевых разделов — например, IMEI телефонов или размеры раскроя.</li></ul><p><b>Сотрудники.</b> Имена, должности, права доступа, отметки прихода и ухода, ставки, авансы и выплаты.</p><p><b>Ваши клиенты и поставщики.</b> То, что вы сами заводите в контактах: имя, телефон, долги и платежи.</p><p><b>Фото и голос.</b> Фото накладной или голосовой вопрос помощнику — только когда вы сами пользуетесь этими функциями.</p><p><b>Технические данные.</b> Модель устройства, версия приложения и отчёты об ошибках — чтобы программа работала и мы могли чинить сбои.</p></section><section id="s3"><h2><span>3</span>Аптеки</h2><p>Hisob POS не требует данных о здоровье покупателей: продажа проходит без указания пациента.</p><p>Когда кассир отмечает, что товара не было (дефектура), сохраняется название товара, дата, точка и кассир — без данных покупателя.</p><p>Списки аналогов и подборки «по симптому» составляет сама аптека. Программа не подбирает лекарства сама.</p></section><section id="s4"><h2><span>4</span>Зачем мы используем данные</h2><ul><li>чтобы программа работала: считала остатки, себестоимость, прибыль и долги;</li><li>чтобы одни и те же данные были на всех ваших устройствах и точках;</li><li>чтобы отправлять напоминания должникам — по графику и от имени вашего бизнеса, как вы настроили;</li><li>чтобы переносить ваши данные при запуске и помогать в поддержке;</li><li>чтобы находить и исправлять ошибки в программе.</li></ul><p>Мы не используем данные вашего бизнеса для рекламы и не продаём их.</p></section><section id="s5"><h2><span>5</span>Кто видит ваши данные</h2><p><b>Вы и ваши сотрудники</b> — в пределах прав, которые выдаёт владелец. Например, продавец может не видеть закупочные цены и прибыль.</p><p><b>Сотрудники Hisob</b> — только когда это нужно для работы: перенос данных при запуске, ответ на ваш вопрос в поддержке, устранение сбоя.</p><p><b>Никто другой</b> — кроме случаев, когда этого требует закон Республики Таджикистан по официальному запросу.</p></section><section id="s6"><h2><span>6</span>Сторонние сервисы</h2><p>Для работы Hisob POS мы используем сервисы других компаний:</p><ul><li>хостинг — серверы, на которых хранятся данные;</li><li>сервисы распознавания — чтобы прочитать фото накладной и голосовой запрос;</li><li>WhatsApp и Telegram — когда вы или ваши клиенты пишете нам туда. Эти сообщения обрабатываются по правилам самих мессенджеров.</li></ul><p>Мы передаём им только то, что нужно для конкретной задачи.</p></section><section id="s7"><h2><span>7</span>Сайт hisob.app</h2><p>На сайте нет рекламных счётчиков и cookie для слежки. Шрифты загружаются с Google Fonts — при этом Google видит IP-адрес посетителя.</p><p>Кнопки «Написать в WhatsApp» и «Написать в Telegram» открывают мессенджер. Сам сайт ваши сообщения не получает и не хранит.</p></section><section id="s8"><h2><span>8</span>Как мы защищаем данные</h2><ul><li>данные передаются по защищённому соединению (HTTPS);</li><li>вход в приложение можно закрыть PIN-кодом или отпечатком пальца;</li><li>права сотрудников настраиваются по отдельности: что видеть и что менять;</li><li>доступ сотрудников Hisob к данным клиентов ограничен задачами поддержки.</li></ul></section><section id="s9"><h2><span>9</span>Сколько храним и как удалить</h2><p>Данные хранятся, пока вы пользуетесь Hisob POS.</p><p>Если вы решили уйти — напишите нам. Выгрузим ваши данные в файл и удалим их, кроме того, что мы обязаны хранить по закону.</p></section><section id="s10"><h2><span>10</span>Ваши права</h2><ul><li>узнать, какие данные о вас есть у нас;</li><li>исправить неточные данные;</li><li>получить выгрузку своих данных;</li><li>удалить учётную запись и данные бизнеса.</li></ul><p>Для этого напишите нам любым способом из раздела «Контакты».</p></section><section id="s11"><h2><span>11</span>Данные ваших сотрудников и клиентов</h2><p>Когда вы вносите в программу данные сотрудников, клиентов или поставщиков, вы решаете, что вносить и зачем. Вы отвечаете за то, что имеете право работать с этими данными.</p><p>Мы обрабатываем их только по вашему поручению — чтобы программа работала.</p></section><section id="s12"><h2><span>12</span>Изменения</h2><p>Мы можем обновлять этот документ, когда в программе появляются новые функции. Дата обновления — вверху страницы. О важных изменениях сообщим заранее.</p></section><section id="s13"><h2><span>13</span>Контакты</h2><ul><li>Телефон и WhatsApp: <a href="tel:+992712056006">+992 712 056 006</a></li><li>Telegram: <a href="https://t.me/hisobapp" target="_blank" rel="noopener">@hisobapp</a></li><li>Эл. почта: <a href="mailto:yakubiabduqahhor@gmail.com">yakubiabduqahhor@gmail.com</a></li><li>Адрес: Душанбе, Таджикистан</li></ul></section>
+    <div class="legal-ask"><p>Остались вопросы по документу?</p><a class="btn btn-wa btn-sm" href="https://wa.me/992712056006?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A3%20%D0%BC%D0%B5%D0%BD%D1%8F%20%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%20%D0%BF%D0%BE%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%83%20%C2%AB%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B4%D0%B5%D0%BD%D1%86%D0%B8%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%C2%BB." target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-4.6A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 10a4 4 0 0 0 5 5"/></svg> Написать в WhatsApp</a></div>
+  </article>
+</div></section>
+<footer class="footer" id="kontakty">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="./" class="logo" style="margin-bottom:12px"><span class="logo-mark"><svg viewBox="0 0 512 512" fill="#FFFFFF" aria-hidden="true"><rect x="97" y="88" width="71" height="324" rx="35"/><rect x="344" y="88" width="71" height="324" rx="35"/><rect x="243" y="204" width="101" height="46" rx="23"/><rect x="168" y="262" width="104" height="46" rx="23"/></svg></span><span>Hisob</span></a>
+        <p>IT-компания в Душанбе. Hisob POS — учёт для магазина, склада и производства. Hisob Education — платформа для учебных центров. Hisob Cargo — система для карго-компаний.</p>
+      </div>
+      <div>
+        <h4>Связаться</h4>
+        <ul>
+          <li><a href="tel:+992712056006">+992 712 056 006</a></li>
+          <li><a href="https://wa.me/992712056006?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%20Hisob%20POS." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://t.me/hisobapp" target="_blank" rel="noopener">Telegram @hisobapp</a></li>
+          <li><a href="https://instagram.com/hisob.app" target="_blank" rel="noopener">Instagram hisob.app</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ваш бизнес</h4>
+        <ul>
+          <li><a href="./mebel/">Мебельный цех</a></li>
+          <li><a href="./proizvodstvo/">Производство</a></li>
+          <li><a href="./apteka/">Аптека</a></li>
+          <li><a href="./opt/">Сухофрукты и опт</a></li>
+          <li><a href="./zerkala/">Зеркальный цех</a></li>
+          <li><a href="./telefony/">Магазин телефонов</a></li>
+          <li><a href="./mebel-magazin/">Мебельный магазин</a></li>
+          <li><a href="./materialy/">Мебельные материалы</a></li>
+          <li><a href="./magazin/">Магазин и стройматериалы</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Документы</h4>
+        <ul>
+          <li><a href="./privacy.html">Политика конфиденциальности</a></li>
+          <li><a href="./terms.html">Условия использования</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hisob · Душанбе, Таджикистан</span>
+      <span>hisob.app</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.getElementById('menuBtn'),n=document.getElementById('nav');
+  if(!b||!n)return;
+  b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
+  var h=document.getElementById('header');window.addEventListener('scroll',function(){h.classList.toggle('scrolled',window.scrollY>8);},{passive:true});
+  var t=n.querySelector('.menu-toggle');if(t){t.addEventListener('click',function(e){if(window.innerWidth<=820){e.preventDefault();t.parentNode.classList.toggle('open');}});}
+  n.addEventListener('click',function(e){var a=e.target.closest('a');if(a&&!a.classList.contains('menu-toggle')){n.classList.remove('open');b.setAttribute('aria-expanded','false');}});
+})();
+(function(){
+  var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .shot, .ai-msg, .ai-point');
+  if(!('IntersectionObserver' in window)||rm){return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px',threshold:0.08});
+  Array.prototype.forEach.call(els,function(el){var i=0,p=el.parentNode,c=el;while((c=c.previousElementSibling)&&i<5)i++;el.style.transitionDelay=(i*70)+'ms';el.classList.add('reveal');io.observe(el);});
+})();
+(function(){
+  var d=document.getElementById('rotData'),slots=document.querySelectorAll('.ptile.rot');
+  if(!d||!slots.length)return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var all=JSON.parse(d.textContent),shown=[],hidden=[];
+  Array.prototype.forEach.call(slots,function(s){var t=s.querySelector('b').textContent;var it=null;all.forEach(function(x){if(x.t===t)it=x;});shown.push(it);});
+  all.forEach(function(x){if(shown.indexOf(x)<0)hidden.push(x);});
+  if(!hidden.length)return;
+  hidden.forEach(function(x){var im=new Image();im.src=x.img;});
+  var paused=false,collage=document.querySelector('.hero-collage'),k=0;
+  collage.addEventListener('mouseenter',function(){paused=true;});collage.addEventListener('mouseleave',function(){paused=false;});
+  function swap(){
+    if(paused||document.hidden)return;
+    var i=k;k=(k+1>=slots.length)?0:k+1;var slot=slots[i],next=hidden.shift();if(!next)return;
+    var old=slot.querySelector('img'),im=document.createElement('img');im.src=next.img;im.alt='';im.style.opacity='0';
+    slot.insertBefore(im,old.nextSibling);
+    var lab=slot.querySelector('.ptile-label');
+    requestAnimationFrame(function(){requestAnimationFrame(function(){im.style.opacity='1';lab.classList.add('fade');setTimeout(function(){lab.querySelector('b').textContent=next.t;var sm=lab.querySelector('small');if(sm)sm.textContent=next.s;slot.href=next.href;if(next.href.indexOf('http')===0){slot.target='_blank';}else{slot.removeAttribute('target');slot.removeAttribute('rel');}lab.classList.remove('fade');},300);setTimeout(function(){if(old.parentNode)old.parentNode.removeChild(old);},800);});});
+    hidden.push(shown[i]);shown[i]=next;
+  }
+  setInterval(swap,4500);
+})();
+(function(){
+  var d=document.getElementById('scrData'),tabs=document.getElementById('scrTabs');if(!d||!tabs)return;
+  var S=JSON.parse(d.textContent),D=document.getElementById('scrD'),M=document.getElementById('scrM'),C=document.getElementById('scrCap'),U=document.getElementById('scrUrl'),cur=0;
+  S.forEach(function(x){var a=new Image();a.src=x.d;var b=new Image();b.src=x.m;});
+  function fade(img,src){if(img.getAttribute('src').indexOf(src)>=0)return;img.classList.add('out');setTimeout(function(){img.src=src;img.onload=function(){img.classList.remove('out');};},220);}
+  tabs.addEventListener('click',function(e){var t=e.target.closest('.tab');if(!t)return;var i=+t.dataset.i;if(i===cur)return;cur=i;
+    Array.prototype.forEach.call(tabs.children,function(c){c.classList.toggle('active',c===t);});
+    fade(D,S[i].d);fade(M,S[i].m);C.textContent=S[i].c;U.textContent='hisob.app / '+S[i].u;});
+})();
+</script>
 </body>
 </html>
