@@ -54,7 +54,8 @@ button { font: inherit; }
   backdrop-filter: saturate(150%) blur(10px);
   border-bottom: 1px solid var(--rule);
 }
-.header-inner { display: flex; align-items: center; gap: 28px; height: 68px; }
+.header-inner { display: flex; align-items: center; gap: 28px; height: 76px; }
+.header.scrolled { box-shadow: 0 6px 24px rgba(15,15,15,0.06); }
 .logo { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 700; font-size: 20px; letter-spacing: -0.3px; }
 .logo-mark { width: 34px; height: 34px; border-radius: 10px; background: var(--plate); display: grid; place-items: center; flex-shrink: 0; }
 .logo-mark svg { width: 22px; height: 22px; }
@@ -62,7 +63,25 @@ button { font: inherit; }
 .nav { display: flex; gap: 22px; margin-left: 12px; }
 .nav a { color: var(--secondary); font-weight: 500; font-size: 16px; }
 .nav a:hover, .nav a[aria-current] { color: var(--ink); }
-.header-cta { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+.header-cta { margin-left: auto; display: flex; gap: 18px; align-items: center; }
+.header-phone { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); font-weight: 600; font-size: 16px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.header-phone svg { width: 18px; height: 18px; color: var(--amber); }
+.header-phone:hover { color: var(--amber-dark); }
+/* выпадающее меню отраслей */
+.has-menu { position: relative; }
+.menu-toggle { display: inline-flex; align-items: center; gap: 4px; }
+.menu-toggle svg { transition: transform .15s; }
+.has-menu:hover .menu-toggle svg, .has-menu.open .menu-toggle svg { transform: rotate(180deg); }
+.menu { display: none; position: absolute; left: -16px; top: calc(100% + 14px); width: 760px; background: var(--paper); border: 1px solid var(--rule); border-radius: var(--radius); box-shadow: 0 24px 60px rgba(15,15,15,0.12); padding: 14px; z-index: 60; }
+.menu::before { content: ''; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
+.has-menu:hover .menu, .has-menu.open .menu { display: block; }
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.menu-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border-radius: 12px; color: var(--ink); }
+.menu-item:hover { background: var(--hover); color: var(--ink); }
+.menu-item .icon { width: 38px; height: 38px; border-radius: 10px; background: var(--amber-light); color: var(--amber); display: grid; place-items: center; flex-shrink: 0; }
+.menu-item b { display: block; font-size: 16px; font-weight: 600; }
+.menu-item small { display: block; font-size: 13px; color: var(--secondary); margin-top: 2px; }
+.menu-foot { border-top: 1px solid var(--divider); margin-top: 10px; padding: 12px 12px 4px; font-size: 14px; color: var(--secondary); }
 .menu-btn { display: none; margin-left: auto; width: 44px; height: 44px; border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); cursor: pointer; }
 .menu-btn span { display: block; width: 18px; height: 2px; background: var(--ink); margin: 3px auto; border-radius: 2px; }
 
@@ -99,18 +118,17 @@ button { font: inherit; }
 .accent-line { display: block; font-size: clamp(20px, 2.2vw, 28px); font-weight: 600; color: var(--amber); letter-spacing: -0.4px; margin-top: 8px; }
 
 /* ---------- hero ---------- */
-.hero { padding: clamp(40px, 6vw, 80px) 0 0; overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1fr; gap: 36px; }
-.hero-text { max-width: 720px; }
-.hero-text .lead { margin-top: 18px; max-width: 620px; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero { padding: clamp(40px, 6vw, 72px) 0 0; overflow: hidden; }
+.hero-text { max-width: 860px; margin: 0 auto; text-align: center; }
+.hero-text .lead { margin: 18px auto 0; max-width: 680px; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
 .hero-note { margin-top: 16px; font-size: 15px; color: var(--muted); }
-.devices { position: relative; margin-top: 12px; display: flex; align-items: flex-end; justify-content: center; }
-.desktop-frame { width: min(100%, 980px); border-radius: 16px; background: var(--paper); border: 1px solid var(--rule); overflow: hidden; box-shadow: 0 24px 60px rgba(15,15,15,0.10); }
+.devices { display: flex; align-items: flex-end; justify-content: center; gap: 28px; margin-top: clamp(28px, 4vw, 44px); }
+.desktop-frame { width: min(100%, 900px); border-radius: 16px; background: var(--paper); border: 1px solid var(--rule); overflow: hidden; box-shadow: 0 24px 60px rgba(15,15,15,0.10); flex-shrink: 1; }
 .desktop-bar { height: 34px; background: #F0EEE9; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 12px; padding: 0 14px; }
 .desktop-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--rule); display: inline-block; }
 .desktop-bar b { flex: 1; height: 20px; border-radius: 6px; background: #fff; border: 1px solid var(--rule); font-size: 11px; font-weight: 500; color: var(--secondary); display: flex; align-items: center; padding: 0 10px; }
-.phone-frame { width: clamp(120px, 20%, 220px); background: var(--ink); border-radius: 28px; padding: 7px; box-shadow: 0 20px 50px rgba(15,15,15,0.22); margin-left: -8%; margin-bottom: -2px; flex-shrink: 0; }
+.phone-frame { width: clamp(150px, 19%, 236px); background: var(--ink); border-radius: 28px; padding: 7px; box-shadow: 0 20px 50px rgba(15,15,15,0.22); flex-shrink: 0; }
 .phone-frame img { border-radius: 22px; }
 
 /* ---------- полоса фактов ---------- */
@@ -225,7 +243,16 @@ button { font: inherit; }
   .section-head, .split, .split.reverse, .cta { grid-template-columns: 1fr; }
   .split.reverse > :first-child { order: 0; }
   .cards, .cards-2, .cards-4, .steps, .facts { grid-template-columns: 1fr; }
-  .phone-frame { width: 120px; margin-left: -14%; }
+  .devices { gap: 12px; }
+  .phone-frame { width: 96px; border-radius: 16px; padding: 4px; }
+  .phone-frame img { border-radius: 13px; }
+  .desktop-bar { height: 24px; }
+  .desktop-bar b { font-size: 9px; height: 14px; }
+  .has-menu { display: block; }
+  .menu-toggle { display: flex; justify-content: space-between; }
+  .menu { position: static; width: auto; border: 0; box-shadow: none; padding: 0 0 8px; background: transparent; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .menu-foot { display: none; }
   .dark-band { flex-direction: column; align-items: flex-start; }
   .table th, .table td { padding: 12px; font-size: 15px; }
   .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
