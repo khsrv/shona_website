@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://hisob.tj/sitemap.xml
+Sitemap: https://hisob.app/sitemap.xml
