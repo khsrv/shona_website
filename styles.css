@@ -857,3 +857,40 @@ button { font: inherit; }
 /* девиз под заголовком — и на компьютере тоже */
 .hero-lead { display: block; margin: 14px auto 0; max-width: 34ch; color: var(--secondary); font-size: 18px; line-height: 1.45; }
 @media (max-width: 820px) { .hero-lead { font-size: 17px; max-width: 30ch; } }
+
+/* ---- другие направления: плитки с фото ---- */
+.others-sec { padding-top: 0; }
+.others-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.others-grid .ptile { min-height: 132px; border-radius: 18px; }
+.others-grid .ptile-label { left: 14px; right: 12px; bottom: 12px; }
+.others-grid .ptile-label b { font-size: 15px; }
+.others-grid .ptile-label small { font-size: 12px; }
+.others-grid .oth-more { background: var(--ink); }
+.others-grid .oth-more::after { content: none; }
+.others-grid .oth-more .ptile-label b { color: #fff; }
+.others-grid .oth-more .ptile-label small { color: #C9D2DC; }
+@media (max-width: 1024px) { .others-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 820px) {
+  .others-grid { display: flex; overflow-x: auto; gap: 10px; margin: 0 -20px; padding: 0 20px 6px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .others-grid::-webkit-scrollbar { display: none; }
+  .others-grid .ptile { flex: 0 0 150px; min-height: 104px; border-radius: 16px; scroll-snap-align: start; }
+  .others-grid .ptile-label b { font-size: 13.5px; }
+}
+
+/* ---- подвал: подписи у контактов ---- */
+.foot-soc { width: auto; height: 44px; padding: 0 14px 0 12px; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; text-decoration: none; }
+.foot-soc svg { width: 20px; height: 20px; flex-shrink: 0; }
+.foot-contacts { flex-wrap: wrap; }
+@media (max-width: 820px) {
+  .foot-contacts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .foot-phone { grid-column: 1 / -1; }
+  .foot-soc { justify-content: center; padding: 0 8px; font-size: 13px; gap: 6px; }
+}
+/* лента: устойчивость в Safari (без flex-gap, группы не сжимаются), скорость выше */
+@media (max-width: 820px) {
+  .hero-track { animation-duration: 18s; }
+  .hero-group { flex: 0 0 auto; gap: 0; padding-right: 0; }
+  .hero-group .ptile { margin-right: 10px; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-mask-image: -webkit-radial-gradient(white, black); }
+}
+.fp-img.fp-chat { background: var(--ground); padding: 18px 18px 0; aspect-ratio: auto; }
+.fp-img.fp-chat .ai-chat { max-width: 640px; margin: 0 auto; border-radius: 18px 18px 0 0; box-shadow: none; border-bottom: 0; }
