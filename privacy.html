@@ -13,6 +13,9 @@
 <meta property="og:description" content="Какие данные получает Hisob POS, зачем, кто их видит и как их выгрузить или удалить.">
 <meta property="og:image" content="https://hisob.app/images/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Hisob POS">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Hisob","url":"https://hisob.app/","logo":"https://hisob.app/images/icon-512.png","telephone":"+992712056006","address":{"@type":"PostalAddress","addressLocality":"Душанбе","addressCountry":"TJ"},"sameAs":["https://t.me/hisobapp","https://instagram.com/hisob.app"]},{"@type":"SoftwareApplication","name":"Hisob POS","applicationCategory":"BusinessApplication","operatingSystem":"Android, iOS, Windows, macOS, Web","url":"https://hisob.app/","description":"Программа учёта для производства, магазина и аптеки: касса, склад, долги, прибыль, сотрудники и ИИ-помощник.","offers":{"@type":"Offer","priceCurrency":"TJS","availability":"https://schema.org/InStock"}}]}</script>
 <link rel="icon" href="./images/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
 <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
@@ -20,8 +23,9 @@
 <meta name="theme-color" content="#F6F5F2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles.css?v=78dbc974">
+<link rel="stylesheet" href="./styles.css?v=843cb9d7">
 </head>
 <body>
 <header class="header" id="header">
@@ -102,7 +106,7 @@
 })();
 (function(){
   var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .price-card, .cta-photo, .faq-card, .shot, .ai-msg, .ai-point, .fcard, .fp-list li');
+  var els=document.querySelectorAll('.section-head, .card, .step, .fact, .table, .devices, .cta, .faq > *, .also, .dark-band, .dark-card, .price-card, .cta-photo, .faq-card, .faq-foot, .shot, .ai-msg, .ai-point, .fcard, .fbar, .fp-card, .mod-head, .mod-grid > li, .mod-photo, .mod-more, .facts4 > li, .tar-row, .others-grid > .ptile, .ind-hero-text, .ind-visual');
   if(!('IntersectionObserver' in window)||rm){return;}
   var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{rootMargin:'0px 0px -40px 0px',threshold:0.08});
   Array.prototype.forEach.call(els,function(el){var i=0,p=el.parentNode,c=el;while((c=c.previousElementSibling)&&i<5)i++;el.style.transitionDelay=(i*70)+'ms';el.classList.add('reveal');io.observe(el);});

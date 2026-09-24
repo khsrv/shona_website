@@ -944,3 +944,18 @@ button { font: inherit; }
 }
 .mod-grid li.ic.more { padding: 0; }
 @media (max-width: 480px) { .mod-grid li.ic.more { padding: 0; } }
+
+/* ---- мягкие hover-эффекты у карточек ---- */
+.mod-grid > li { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.mod-grid > li:hover { transform: translateY(-2px); border-color: #CFC9C0; box-shadow: 0 10px 24px -18px rgba(26,26,26,.35); }
+.fcard { transition: transform .25s ease, box-shadow .25s ease; }
+.fcard:hover { transform: translateY(-3px); box-shadow: 0 22px 44px -30px rgba(26,26,26,.35); }
+.fp-card { transition: box-shadow .25s ease; }
+.facts4 > li { transition: transform .2s ease; }
+.facts4 > li:hover { transform: translateY(-2px); }
+.foot-soc, .foot-phone { transition: background .15s, color .15s, border-color .15s, transform .15s; }
+.foot-soc:hover, .foot-phone:hover { transform: translateY(-1px); }
+.mod-photo img, .fp-img img { transition: transform .6s ease; }
+.mod-photo:hover img, .fp-img:hover img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { .mod-grid > li, .fcard, .facts4 > li, .foot-soc, .foot-phone, .mod-photo img, .fp-img img { transition: none; } }
+@media (hover: none) { .mod-grid > li:hover, .fcard:hover, .facts4 > li:hover { transform: none; box-shadow: none; } }
