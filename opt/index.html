@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=54dd4076">
+<link rel="stylesheet" href="../styles.css?v=78dbc974">
 </head>
 <body>
 <header class="header" id="header">
@@ -76,8 +76,8 @@
   <div class="mod-photo"><img src="https://images.unsplash.com/photo-1702506183897-e4869f155209?w=1600&h=800&fit=crop&crop=entropy&q=72&fm=jpg" alt="" loading="lazy" width="1600" height="800"></div>
 </div></section>
 <section class="section" id="baza"><div class="wrap">
-  <h2 class="h2 fhead">Плюс основа — <em>как у любого бизнеса</em></h2>
-  <p class="lead fsub">Склад, касса, долги и прибыль — одинаково для магазина, цеха и аптеки. С ИИ-помощником внутри.</p>
+  <h2 class="h2 fhead">А ещё в программе есть <em>всё для учёта</em></h2>
+  <p class="lead fsub">Склад, касса, долги, прибыль и ИИ-помощник. Это есть у каждого клиента, в любой отрасли.</p>
   <ul class="fcards"><li class="fcard">
   <span class="fdot amber"></span>
   <h3><b>Склад</b> и товары</h3>
@@ -123,7 +123,7 @@
 </div></section>
 <section class="section"><div class="wrap">
   <div class="cta-photo">
-    <img src="https://images.unsplash.com/photo-1697545806245-9795b6056141?w=1800&h=900&fit=crop&crop=entropy&q=72&fm=jpg" alt="" loading="lazy" width="1800" height="900">
+    <img src="https://images.unsplash.com/photo-1753161029695-f1d1e6881257?w=1800&h=900&fit=crop&crop=entropy&q=72&fm=jpg" alt="" loading="lazy" width="1800" height="900">
     <div class="cta-over">
       <h2 class="h2">Посчитаем вашу машину</h2>
       <p>Пришлите цифры одной поставки — покажем её прибыль с фрахтом и курсом. 30 минут, без обязательств.</p>
@@ -249,9 +249,23 @@
 })();
 </script>
 <script>
-(function(){var st=document.querySelector('.hero-strip');if(!st)return;
-['touchstart','pointerdown'].forEach(function(e){st.addEventListener(e,function(){st.classList.add('paused');},{passive:true});});
-['touchend','touchcancel','pointerup','pointercancel'].forEach(function(e){st.addEventListener(e,function(){setTimeout(function(){st.classList.remove('paused');},1500);},{passive:true});});
+(function(){
+  var st=document.querySelector('.hero-strip'), tr=st&&st.querySelector('.hero-track'); if(!st||!tr) return;
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var speed=45, pos=null, paused=false, last=null, timer=null;
+  function half(){ return tr.getBoundingClientRect().width/2; }
+  function wrap(){ var h=half(); if(h<=0) return; if(st.scrollLeft>=h){ st.scrollLeft-=h; pos=st.scrollLeft; } else if(st.scrollLeft<=0&&paused){ st.scrollLeft+=h; pos=st.scrollLeft; } }
+  function step(ts){
+    if(last==null) last=ts; var dt=Math.min((ts-last)/1000,.05); last=ts;
+    if(st.offsetParent&&!document.hidden&&!paused){ if(pos==null) pos=st.scrollLeft; pos+=speed*dt; st.scrollLeft=Math.round(pos); wrap(); }
+    requestAnimationFrame(step);
+  }
+  function hold(){ paused=true; clearTimeout(timer); }
+  function release(){ clearTimeout(timer); timer=setTimeout(function(){ pos=st.scrollLeft; paused=false; },1800); }
+  ['touchstart','pointerdown','mousedown'].forEach(function(e){ st.addEventListener(e,hold,{passive:true}); });
+  ['touchend','touchcancel','pointerup','pointercancel','mouseup','mouseleave'].forEach(function(e){ st.addEventListener(e,release,{passive:true}); });
+  st.addEventListener('scroll',function(){ if(paused){ wrap(); release(); } },{passive:true});
+  requestAnimationFrame(step);
 })();
 </script>
 </body>

@@ -936,3 +936,11 @@ button { font: inherit; }
 }
 @media (max-width: 360px) { .header-wa span { display: none; } .header-wa { width: 42px; padding: 0; justify-content: center; } }
 @media (max-width: 960px) { .header-inner { gap: 12px; } .header-wa { padding: 0 12px 0 10px; height: 40px; } .header-wa + .menu-btn { margin-left: 4px; } }
+/* лента: едет сама и листается пальцем */
+@media (max-width: 820px) {
+  .hero-collage .hero-strip { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; scroll-snap-type: none; }
+  .hero-strip::-webkit-scrollbar { display: none; }
+  .hero-strip .hero-track { animation: none; }
+}
+.mod-grid li.ic.more { padding: 0; }
+@media (max-width: 480px) { .mod-grid li.ic.more { padding: 0; } }
